@@ -11,18 +11,28 @@ fi
 
 RSTFILE=$1
 shift;
+
 DOWP=0
 if [ "${1}X" != "X" ]; then
   DOWP=1
+  shift
 fi
+
+# this css combines the default html4css1 and pygmentize css
+CSS=../css/mystyle.css
 
 if [ $DOWP -eq 1 ]; then
   RSTCMD=/home/jbkim/git/rst2wp/rst2wp.py
   echo $RSTCMD $RSTFILE
-  $RSTCMD $RSTFILE $*
+  $RSTCMD $RSTFILE -s $CSS $*
 else
   HTMLOUT=/var/www/droparea/test.html
+  RSTCMD=rst2html.py
   # /usr/local/lib/python2.6/dist-packages/docutils/writers/html4css1/html4css1.css
-  rst2html.py --syntax-highlight=short --stylesheet=/usr/local/lib/python2.6/dist-packages/docutils/writers/html4css1/html4css1.css,mystyle.css $* $RSTFILE $HTMLOUT
+  # my custom css that combins html4css1.css and pygmentize generted syntax css.
+  # CSS="/usr/local/lib/python2.7/dist-packages/docutils/writers/html4css1/mystyle.css"
+
+  echo $RSTCMD --syntax-highlight=short --stylesheet=$CSS $* $RSTFILE $HTMLOUT
+  $RSTCMD --syntax-highlight=short --stylesheet=$CSS $* $RSTFILE $HTMLOUT
   echo "written to $HTMLOUT"
 fi
