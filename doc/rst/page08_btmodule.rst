@@ -6,6 +6,48 @@ There are two different kinds of modules:
 
 
 
+Testing Connection from PC Bluetooth
+====================================
+
+This is tested on Ubuntu. If you have bluetooth in your hardware
+you can readily do this.
+
+First scan to see if you can detect LEDI::
+
+  hcitool scan
+
+And now edit `/etc/bluetooth/rfcomm.conf` and put in an entry like 
+this::
+
+  rfcomm0 {
+    # Automatically bind the device at startup
+    bind no;
+
+    # Bluetooth address of the device
+    device 00:12:07:11:13:60;
+
+    # RFCOMM channel for the connection
+    channel 1;
+
+    # Description of the connection
+    comment "any description you like";
+  }
+
+
+
+Once that's done, run::
+
+  rfcomm bind rfcomm0
+  rfcomm connect rfcomm0
+
+
+A PIN request popup window will show. Put in `1234` and you will pair with
+LEDI. Now, you can use the rfcomm like a serial port device::
+
+  sudo minicom -D /dev/rfcomm0 -b 9600 -8
+  
+
+
 Configuration
 =============
 
