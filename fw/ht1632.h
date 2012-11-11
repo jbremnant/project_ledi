@@ -8,7 +8,7 @@
 #define byte2 uint16_t
 
 // modify here for more boards
-#define N_PANELS    2
+#define N_PANELS    1
 #define ALL_BOARDS  0b00000011   // bit mask for active display boards
 
 #define OUTPUT 1

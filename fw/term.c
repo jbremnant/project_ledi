@@ -103,11 +103,11 @@ uint8_t term_check_mode(const char *s, uint8_t n)
     return MODE_INVALID;
 
   if(s[0]==':' && s[1]=='d') {
-    term_sendstr(PSTR("draw mode\r\n"));
+    // term_sendstr(PSTR("draw mode\r\n"));
     return MODE_DRAW;
   }
   if(s[0]==':' && s[1]=='t') {
-    term_sendstr(PSTR("timeset mode\r\n"));
+    // term_sendstr(PSTR("timeset mode\r\n"));
     return MODE_TIMESET;
   }
   return MODE_INVALID;

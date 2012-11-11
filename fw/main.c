@@ -22,12 +22,20 @@
 #endif
 #include "term.h"
 
+// #define USE_V0
+
 #define BUTTON1 PC1
 #define BUTTON2 PC0
 
-#define BUZZER_PORT PORTD
-#define BUZZER_REG  DDRD
-#define BUZZER      PD6
+#ifdef USE_V0
+  #define BUZZER_PORT PORTB
+  #define BUZZER_REG  DDRB
+  #define BUZZER      PB1
+#else
+  #define BUZZER_PORT PORTD
+  #define BUZZER_REG  DDRD
+  #define BUZZER      PD6
+#endif
 
 #define BT_PRESS 0x02
 #define BT_HOLD  0x04
@@ -487,26 +495,17 @@ void mode_timeset(char *strbuf, int i)
 
   if(timegood)
   {
+    // indicate that timeset is good
     play_tone(B5, 5); _delay_ms(2);
     play_tone(D6, 5);
     hours   = 10*digits[0] + digits[1];
     minutes = 10*digits[2] + digits[3];
-    // report time no good (:tng)
-    uart_putc(':'); uart_putc('t');
-    for(j=0; j<4; j++)
-      uart_putc(digits[j]+'0');
-    uart_putc('\r');
-    uart_putc('\n');
   }
   else
   {
+    // indicate that it's bad
     play_tone(G5, 20); _delay_ms(5);
     play_tone(G5, 20);
-    // report time no good (:tng)
-    uart_putc(':'); uart_putc('t');
-    uart_putc('n'); uart_putc('g');
-    uart_putc('\r');
-    uart_putc('\n');
   }
 }
 
@@ -517,8 +516,6 @@ void mode_msg(char *strbuf, int i)
   // play_tone(A5, 4); _delay_ms(5);
   // play_tone(B5, 5); _delay_ms(5);
   // play_tone(E5, 8);
-
-  // term_sendstr(PSTR("got msg\r\n"));
   ht1632_scrollstr(strbuf, i, 20);
 }
 
@@ -558,8 +555,14 @@ int main()
 #ifdef USE_UARTSYNC
   uart_init();
 #else
-  uart_init( UART_BAUD_SELECT(38400,F_CPU) );
-  // uart_init( UART_BAUD_SELECT(9600,F_CPU) );
+
+  #ifdef USE_V0
+  uart_init( UART_BAUD_SELECT(9600,F_CPU) );
+  #else
+  // uart_init( UART_BAUD_SELECT(38400,F_CPU) );
+  uart_init( UART_BAUD_SELECT(9600,F_CPU) );
+  #endif
+
 #endif
 
   sei(); // turn on interrupt handler
