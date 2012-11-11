@@ -2,7 +2,36 @@ Working With Bluetooth Module
 =============================
 
 This document describes the bluetooth module included with LEDI.
-There are two different kinds of modules:
+There are two different kinds of modules that look exactly the same:
+
+* HC-05 Master and Slave module
+* HC-06 Slave-only module
+
+Externally, these modules look identical. Simply from inspection, you
+cannot tell them apart. As far as the hardware is concerned, both of these
+modules seem to have identical components. The root of the differences
+lie in the firmware of these modules.
+
+The module has a lot more accessible pins that what it requires. Many of
+these PINs are general I/O pins and seem to be controlled from the 
+firmware. Essentially, the differences between the two modules are:
+
+* Slightly different recommended electrical wiring
+* Default device name (HC-06 is `linvor`, HC-05 seem varied)
+* Ways of entering AT modes
+* Supported AT commands
+
+
+Physical Wiring on LEDI
+-----------------------
+
+LEDI is compatible with both types of modules - the PCB wiring was designed
+to accomodate either modules. In addition, a breakout header gives 
+direct access to the bluetooth module. 
+
+
+In essence, the LEDI board can be used as a standalone bluetooth board
+that can be interfaced from other exteral devices.
 
 
 
@@ -37,8 +66,9 @@ this::
 
 Once that's done, run::
 
-  rfcomm bind rfcomm0
-  rfcomm connect rfcomm0
+  sudo rfcomm release rfcomm0 # if already connected
+  sudo rfcomm bind rfcomm0
+  sudo rfcomm connect rfcomm0
 
 
 A PIN request popup window will show. Put in `1234` and you will pair with
@@ -48,8 +78,29 @@ LEDI. Now, you can use the rfcomm like a serial port device::
   
 
 
-Configuration
-=============
+Changing The Module Configuration
+=================================
+
+In most cases, changing configuration parameters on HC-05/06 is not
+required. However, there are several useful things you can do with
+config change:
+
+* Increase the baud rate, thereby making UART communication faster
+* Change the bluetooth module name
+* Change the pairing PIN code
+* Change pairing behavior (HC-05 only)
+
+
+Setting Up FTDI Adaptor
+-----------------------
+
+The module operates at 3.3v. You will need 3.3v USB to serial adaptor (e.g. FTDI
+breakout) to connect to the BT module.
+
+
+
+Learning The AT Commands
+========================
 
 The command set is quite different between HC-05 (master,slave) and
 HC-06 (slave-only).
