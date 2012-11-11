@@ -14,19 +14,6 @@
 #define CMD_DRAW_DOT     3
 #define CMD_DRAW_RECT    4
 
-struct draw_struct
-{
-  uint8_t cmd;
-  uint8_t x1;
-  uint8_t y1;
-  uint8_t x2;
-  uint8_t y2;
-  char *pos;
-  uint8_t n;
-  uint16_t delay;
-  uint8_t clear;
-};
-
 void phexch(unsigned char c);
 void phex(unsigned char c);
 void phex16(unsigned int i);

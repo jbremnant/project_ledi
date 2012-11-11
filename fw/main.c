@@ -80,7 +80,6 @@ void start_led_sync_timer()
   // TCCR0B = (1<<CS02) | (1<<CS00); // prescale by 1024, gives (1<<23)/(1<<10) = 8192 ticks
   // TIMSK0 = (1<<TOIE0);            // overflow interrupt enable
   // TIFR0  = (1<<TOV0);             // clear the interrupt flag, hardware clears it everytime we hit the interrupt
-
   TCCR0A = (1<<WGM01);            // clear timer on compare match (CTC)
   TCCR0B = (1<<CS02) | (1<<CS00); // prescale by 1024, gives (1<<23)/(1<<10) = 8192 ticks
   TIMSK0 = (1<<OCIE0A);           // overflow interrupt enable
@@ -93,7 +92,6 @@ void stop_led_sync_timer()
   TCCR0B = 0x00;  // turn off the timer
 }
 
-
 // ISR(TIMER0_OVF_vect)
 ISR(TIMER0_COMPA_vect)
 {
@@ -101,7 +99,6 @@ ISR(TIMER0_COMPA_vect)
   PORTC ^= (1<<PC4);
   ht1632_syncram_fast(); 
 }
-
 
 void rtc_init(void)
 {
@@ -161,16 +158,11 @@ void play_tone(uint16_t delay, uint8_t duration)
   }
 }
 
+
 ISR(TIMER2_COMPA_vect)
 {
-  // sei();
-  // when Timer0 gets to its Output Compare value,
-  // one one-hundredth of a second has elapsed (0.01 seconds).
   update_datetime(0);
-  // } 
 }
-
-
 
 
 ISR(PCINT1_vect)
@@ -412,7 +404,6 @@ void mode_draw()
   int16_t n;
   uint8_t rc,val;
   uint8_t state = last_button1state; // button push exits this loop
-  struct draw_struct s;
   uint8_t x = 0;
   uint8_t y = 0;
   uint8_t x_mask = ht1632_xmax() - 1;
@@ -539,7 +530,7 @@ int main()
   uint8_t seconds_last = seconds;
   uint8_t minutes_last = minutes;
   unsigned int ch;
-  
+
   // FILE uart_stream = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
   // stdin = stdout = &uart_stream;
 
