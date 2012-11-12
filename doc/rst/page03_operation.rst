@@ -1,5 +1,10 @@
-Operating LEDI
-==============
+:title: 0x03 Operating LEDI
+:id: 1405
+:type: page
+:parent_id: 1022
+
+0x03 Operating LEDI
+===================
 
 By default, LEDI will go into a clock mode. In this mode, it will display the
 "current" time. LEDI will only keep track of time when it's powered up, so you

@@ -1,5 +1,10 @@
-LEDI Development
-================
+:title: 0x05 LEDI Development
+:id: 1411
+:type: page
+:parent_id: 1022
+
+0x05 LEDI Development
+=====================
 
 There are various ways you can modify and tune LEDI. The development involving
 our device spans, largely, 3 distinct programming areas:

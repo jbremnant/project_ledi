@@ -1,5 +1,10 @@
-Working With Bluetooth Module
-=============================
+:title: 0x08 Working With Bluetooth Module
+:id: 1421
+:type: page
+:parent_id: 1022
+
+0x08 Working With Bluetooth Module
+==================================
 
 This document describes the bluetooth module included with LEDI.
 There are two different kinds of modules: `HC-05` and `HC-06`.

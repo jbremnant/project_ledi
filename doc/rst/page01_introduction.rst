@@ -1,9 +1,11 @@
-:title: Introduction to LEDI
-.. :type: page
-.. :parent_id: 2
+:id: 1394
+:title: 0x01 Introduction to LEDI
+:type: page
+:parent_id: 1022
 
-Introduction to LEDI
-====================
+
+0x01 Introduction to LEDI
+=========================
 
 LEDI, short for LED Interface, is your own personal display device that you can
 build, control, and modify. It can receive messages from bluetooth 
