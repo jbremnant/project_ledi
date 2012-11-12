@@ -2,8 +2,13 @@ Working With Bluetooth Module
 =============================
 
 This document describes the bluetooth module included with LEDI.
-There are two different kinds of modules:
+There are two different kinds of modules: `HC-05` and `HC-06`.
+Contrary to what the model number might suggest, the lower numbered
+model, `HC-05` is the more "advanced" module. 
 
+The model `HC-05` is both master and slave bluetooth device, whereas
+`HC-06` is slave-only. Both modules have factory setting of
+**9600 baudrate**. 
 
 
 Configuration
@@ -11,6 +16,41 @@ Configuration
 
 The command set is quite different between HC-05 (master,slave) and
 HC-06 (slave-only).
+
+Prerequisite
+------------
+
+I've tested this on Ubuntu. I used minicom before, but found this awesome
+terminal program:
+
+* Git project: https://github.com/JorgeAparicio/qSerialTerm/wiki
+  - wiki: https://github.com/JorgeAparicio/qSerialTerm/wiki
+* Relies on: http://qt-project.org/wiki/QtSerialPort
+
+Quick list of commands I ran::
+
+  # install the prerequisites
+  sudo apt-get install libqt4-dev 
+  sudo apt-get install libudev-dev
+  sudo apt-get install libqwt-dev
+
+  # install qtserial port
+  cd $HOME/git
+  git clone git://gitorious.org/qtplayground/qtserialport.git
+  cd qtserialport
+  qmake
+  make
+  sudo make install
+
+  # now install qSerialTerm
+  cd $HOME/git 
+  git clone git://github.com/JorgeAparicio/qSerialTerm.git 
+  cd qSerialTerm
+  qmake 
+  make 
+  sudo make install
+
+
 
 Command Set for HC-06 (Slave only device)
 -----------------------------------------
