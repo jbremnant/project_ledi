@@ -11,7 +11,7 @@ devices or from host PC and display it to the LED matrix board.
 
 LEDI was designed to be simple, fun to build, and customizable by DIYers and
 non-DIYers alike. We wanted the kit to not only be useful, but a good introduction
-for people to take interest in the Do-It-Yourself electronic scene.
+for people to take interest in the Do-It-Yourself electronics scene.
 We also love open source, and for that reason, all aspects of this kit is open source.
 
 |ledi_studio_photo|
