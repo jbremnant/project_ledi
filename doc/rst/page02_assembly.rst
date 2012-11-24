@@ -7,16 +7,17 @@
 0x02 Assemby Instructions
 =========================
 
-Welcome!
---------
-
-You just got your SmartClock. But perhaps you are overwhelmed with all the parts
-and the circuit board? Don.t worry! It.s a lot simpler than you might think.
+You just got your LEDI as DIY kit. But what are all these parts? You might be
+feeling overwhelmed with the thought of putting it all together? Don't worry!
+It's a lot simpler than you might think.
 
 |pcb1|
 
-Assembling LEDI is straight-forward and fun! If you have bought LEDI as a DIY
-kit, you will need to have the following tools ready:
+Preparation
+-----------
+
+Assembling LEDI is straight-forward and fun. We will guide you through each
+step. First, you will need to have the following tools ready:
 
 * soldering iron
 * solder (Lead free preferable)
@@ -26,26 +27,40 @@ kit, you will need to have the following tools ready:
 
 Here are the steps we will take
 
-1. Organize the parts
-2. Solder
-3. Get the Android app
-4. Play with it!
-5. That's it. All you have to do is to follow the detailed steps below,
-   and you will get things rolling very soon.
+#. Organize the parts
+#. Solder
+#. Download the Android app on your phone
+#. Play with it!
 
-
-
-List of Parts
-=============
-
-
+Let's go through the detailed steps below. We suggest you set aside about
+1.5 hours to build the kit. We will tackle one section at a time. Before
+you know it, you will get things rolling very soon.
 
 
 Laying It All Out
 -----------------
 
-The parts are easier to find once you organize them. And there.s a pattern!
-Here.s how I did mine.
+There are a total of 35 parts in LEDI. Here's a complete list of all the parts
+and brief description of each one.
+
+====================  =========  =================================================
+Name                  Quantity   Description
+====================  =========  =================================================
+Atmega328p            1          the brain of LEDI, microcontroller with 28 pins
+28 pin DIP socket     1          socket for the microcontroller
+HC-06/05 Bluetooth    1          bluetooth module for wireless communication
+Barrel jack           1          connector AC adaptor
+Slide switch          2          on/off, 3.3/5v switch
+Tactile push button   4          buttons with 4 small legs
+Capacitor 100uF       1          cylinder shape, aluminum, 2 leads
+Capacitor 10uF        1          cylinder shape, aluminum, 2 leads
+Resistor 10k Ohms     1          strip colors:
+Zener diode 3.3v      1          small orange component with black stripe
+Resistor 15 Ohms      1          strip colors:
+====================  =========  =================================================
+
+The parts are easier to find once you organize them. And there's a pattern!
+Here's how I organized mine before building it.
 
 |parts1|
 
@@ -54,9 +69,6 @@ right. Refer to the following resistor color code to determine their value:
 
 |rescode|
 
-
-Building It
-===========
 
 
 Soldering the Parts
@@ -68,12 +80,13 @@ It's good to complete similar parts of the circuit and then move onto the next.
 This way, you can make sure you got all the parts soldered in the right place,
 instead of jumping around the circuit. (not literally!)
 
+
 Bluetooth module
 ~~~~~~~~~~~~~~~~
-Let.s tackle the hardest part first. And you will find that the rest of what follows
+Let's tackle the hardest part first. And you will find that the rest of what follows
 is a breeze. First place the bluetooth module on the PCB. You will solder just one
 pad on each side first. This will hold the module in place. You will only need to
-solder 8 joints on the module . the rest of the pads can be left as is.
+solder 8 joints on the module. The rest of the pads can be left as is.
 
 It's helpful to have flux handy. The flux helps the solder to flow onto the pads easily.
 If you happen to have it, you can "tin" the pads by
@@ -125,6 +138,17 @@ Atmega328p microcontroller and headers
 This is the easiest part of the circuit. You have 4 resistors, 3 buttons, and IC socket.
 Solder them just like you did with other previous parts.
  
+
+
+Testing the Circuit
+-------------------
+
+Connect the LED matrix to the circuit board. The ribbon cable has a red strip on one end.
+The red strip denotes the first pin. Align this with the pin labelled CS1 on the circuit
+board.
+
+
+
 
 
 .. |pcb1| image:: http://techversat.com/wp-content/uploads/2012/09/tut_pcb_close.jpg
