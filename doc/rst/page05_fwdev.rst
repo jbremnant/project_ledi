@@ -19,7 +19,7 @@ LEDI's functionality.
 
 
 Obtaining the Source Code
-=========================
+-------------------------
 
 At the core, LEDI uses the same microcontroller that powers the Arduino Duemilanove.
 This microcontroller, Atmega328p, is a wildly popular device. It's often used
@@ -48,23 +48,29 @@ Compiled using avr-gcc 4.7.0 under Ubuntu linux.
 
 Here's the list of sources and brief description of each:
 
-  * main.c
-    Main entry point, implements interaction logic with LEDI.
-  * font.h
-    Contains 5x7 sized font. Supports meta characters.
-  * calibration.c/calibration.h
-    Internal RC clock calibration routines. It uses the 32.678kHz watch crystal.
-  * ht1632.c/ht1632.h
-    Library to communicate with led matrix.
-  * uart.c/uart.h
-    Interrupt based UART library, based on Peter Fluery's uartlib.
-  * uartsync.c/uartsync.h
-    Synchronous UART lib that uses hardware UART. (unused by default)
-  * term.c/term.h
-    Library to retrieve strings from UART.
-  * utils.c/utils.h
-    Small collection of utility functions.
+* main.c
+  Main entry point, implements interaction logic with LEDI.
 
+* font.h
+  Contains 5x7 sized font. Supports meta characters.
+
+* calibration.c/calibration.h
+  Internal RC clock calibration routines. It uses the 32.678kHz watch crystal.
+
+* ht1632.c/ht1632.h
+  Library to communicate with led matrix.
+
+* uart.c/uart.h
+  Interrupt based UART library, based on Peter Fluery's uartlib.
+
+* uartsync.c/uartsync.h
+  Synchronous UART lib that uses hardware UART. (unused by default)
+
+* term.c/term.h
+  Library to retrieve strings from UART.
+
+* utils.c/utils.h
+  Small collection of utility functions.
 
 
 Internal Guts

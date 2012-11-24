@@ -40,6 +40,26 @@ There's lots of features built into LEDI:
 We are excited to see how the community will utilize this kit.
 
 
+Technical Features
+------------------
+
+For those who are interested in looking under the hood and getting more out of the kit:
+
+* 32.678kHz crystal for accurate time keeping
+* Supports chaining 2 LED displays
+  - The kit comes with 1 LED display
+* ISP programming header for flashing the chip
+* UART breakout pins for both bluetooth module and microcontroller
+* 8 additional GPIO pins from Atmega328p are accessible via breakout header
+* Piezo buzzer
+* 3.3v or 5v switcheable power supply
+  - Regulated power can be supplied to other circuits
+  - Accepts external DC power
+* Bluetooth module can be controlled isolated from microcontroller
+
+As you can see, these features allow LEDI to be integrated into variety of projects.
+
+
 How It All Started
 ------------------
 
