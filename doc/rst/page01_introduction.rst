@@ -26,6 +26,8 @@ usage to countless electronic projects.
 Features
 --------
 
+|ledi1|
+
 There's lots of features built into LEDI:
 
 * 32 x 8 LED matrix, comes in green or red
