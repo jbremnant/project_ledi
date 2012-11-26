@@ -11,7 +11,8 @@ You just got your LEDI as DIY kit. But what are all these parts? You might be
 feeling overwhelmed with the thought of putting it all together? Don't worry!
 It's a lot simpler than you might think.
 
-|pcb1|
+|assembly2|
+
 
 Preparation
 -----------
@@ -157,3 +158,9 @@ board.
    :uploaded: http://techversat.com/wp-content/uploads/tut_parts011.jpg
 .. |rescode| image:: http://techversat.com/wp-content/uploads/2012/09/resistor_code1.gif
    :uploaded: http://techversat.com/wp-content/uploads/resistor_code1.gif
+
+.. |assembly1| image:: /nas/docs/techversat/web/product_img/P1090133.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/P1090133.jpg
+.. |assembly2| image:: /nas/docs/techversat/web/product_img/P1090137.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/P1090137.jpg
+ 

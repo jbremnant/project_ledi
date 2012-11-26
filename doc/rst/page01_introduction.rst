@@ -103,9 +103,11 @@ As such, we hope that you find both educational and recreational value in LEDI!
    :uploaded-scale20: http://techversat.com/wp-content/uploads/DSC_0085-scale20.jpg
    :uploaded: http://techversat.com/wp-content/uploads/DSC_0085.jpg
    :scale: 20
+
 .. :align: left
 
 .. |ledi2| image:: /nas/docs/techversat/web/product_img/P1090129.JPG
    :uploaded: http://techversat.com/wp-content/uploads/P10901291.jpg
 
+.. LEESA put image of something here
 
