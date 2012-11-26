@@ -3,16 +3,15 @@
 :type: page
 :parent_id: 1022
 
+
 0x03 Operating LEDI
 ===================
 
 When it's first powered up, LEDI will go into a clock mode. The clock starts
 at "00:00", since LEDI does not keep track of time when it's powered off.
 However, once powered on it will constantly keep accurate time across various
-operating modes.
-
-Also in addition to HH:MM clock digits, you will see the binary indicator ticking
-every second. 
+operating modes. Also in addition to HH:MM clock digits, you will see the binary
+indicator ticking every second. 
 
 
 Tactile Buttons
@@ -28,22 +27,20 @@ There are 3 buttons on the board.
 
 
 
-Bluetooth Communication
------------------------
+Bluetooth Bonding
+-----------------
 
 Everytime LEDI is reset, the bluetooth module will put it into discoverable mode.
 Other bluetooth devices can easily scan and pair with LEDI. 
 
-
-Bonding
-~~~~~~~
 Let's first "bond" with LEDI using an Android phone. Go to::
 
   Settings -> Wireless Settings -> Bluetooth Settings
 
 
 Android Apps
-~~~~~~~~~~~~
+------------
+
 We are currently working on making a customized Android app for LEDI. In the meantime,
 there are slew of available Android Apps that just works with LEDI. Almost all of them are
 free. For example, I've tested:
@@ -51,7 +48,7 @@ free. For example, I've tested:
 * SENA_ BTerm Bluetooth Terminal 
 * BlueTerm_
 
-Your LEDI uses Bluetooth module that understands SPP (Serial Port Profile). What this
+LEDI uses Bluetooth module that understands SPP (Serial Port Profile). What this
 basically means is that it's compatible with lots of bluetooth-enabled software out there.
 
 We have interesting set of features planned for our Android App:
@@ -65,7 +62,8 @@ the Android app, please `contact us <http://techversat.com/about-us/contact-us/>
 
 
 Talk to It
-~~~~~~~~~~
+----------
+
 Let's try downloading BlueTerm_ from the App store on your phone. I found it to be the 
 simplest one to use when I was testing LEDI.
 

@@ -11,13 +11,13 @@ LEDI, short for LED Interface, is your own personal display device that you can
 build, control, and modify. It can receive messages from bluetooth devices or
 from host PC and display it to the LED matrix board.
 
+|ledi2|
+
 LEDI was designed to be simple, fun to build, and customizable by DIY-ers and
 non-DIYers alike. We wanted the kit to not only be useful, but a good introduction
 for people to take interest in the Do-It-Yourself electronics scene.
 We also love open source, and for that reason, all aspects of this kit is open source.
 You are welcome to modify or reuse any parts of LEDI in any way you like.
-
-|ledi_studio_photo|
 
 LEDI is immediately hackable, and you will find that it's possible to extend its
 usage to countless electronic projects. 
@@ -96,10 +96,13 @@ LEDI was born out of our desire to learn and have fun at the same time.
 As such, we hope that you find both educational and recreational value in LEDI!
 
 
-.. |ledi_studio_photo| image:: /nas/docs/techversat/web/product_img/DSC_0085.JPG
+.. |ledi1| image:: /nas/docs/techversat/web/product_img/DSC_0085.JPG
    :uploaded-scale20: http://techversat.com/wp-content/uploads/DSC_0085-scale20.jpg
    :uploaded: http://techversat.com/wp-content/uploads/DSC_0085.jpg
    :scale: 20
 .. :align: left
+
+.. |ledi2| image:: /nas/docs/techversat/web/product_img/P1090129.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/P10901291.jpg
 
 
