@@ -60,6 +60,7 @@ For those who are interested in looking under the hood and getting more out of t
 * Bluetooth module can be controlled isolated from microcontroller
 
 As you can see, these features allow LEDI to be integrated into variety of projects.
+We hope you find these features useful for your next project!
 
 
 How It All Started
