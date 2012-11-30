@@ -89,7 +89,7 @@ LED matrix            1          32x8 LED matrix                                
 Serial connector      1          Connector for LED matrix and PCB                    |pt_conn|
 ====================  =========  ==================================================  ==============
 
-^Resistors may come in different color and number of stripes depending on manufacturer, the strip color specified above only indicates the resistor value portion. Please refer to the `**Resistor** ResistorTag_` section for detail.
+^Resistors may come in different color and number of stripes depending on manufacturer, the strip color specified above only indicates the resistor value portion. Please refer to the Resistor_ section for detail.
 
 **If you are purchasing the acrylic enclosure**, the package should also include:
 
@@ -145,9 +145,9 @@ with correct values. Now, let's go through each critical piece.
    voltage is above a certain value. The black strip on one end indicates the "blocking"
    side. You will need to carefully match this strip with the PCB silkscreen.
 
-.. _ResistorTag:
+#. **Resistor**
 
-#. **_Resistor**
+.. _Resistor:
 
    |pt_r15| You will need to be careful about getting the resistor values right.
    Refer to the following resistor color code to determine their value:
