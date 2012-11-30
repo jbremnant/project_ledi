@@ -89,7 +89,7 @@ LED matrix            1          32x8 LED matrix                                
 Serial connector      1          Connector for LED matrix and PCB                    |pt_conn|
 ====================  =========  ==================================================  ==============
 
-^Resistors may come in different color and number of stripes depending on manufacturer, the strip color specified above only indicates the resistor value portion. Please refer to the **Resistor** section for detail.
+^Resistors may come in different color and number of stripes depending on manufacturer, the strip color specified above only indicates the resistor value portion. Please refer to the `**Resistor** ResistorTag_` section for detail.
 
 **If you are purchasing the acrylic enclosure**, the package should also include:
 
@@ -103,8 +103,9 @@ Screw 1-1/2"            4          1-1/2" stainless steel screw                 
 Screw 5/8               4          5/8" stainless steel screw                          |pt_screw2|
 Nuts 4-40 thread        8          4-40 thread stainless steel hex nuts                |pt_nuts|
 Acrylic front plate     1          Transparent acrylic plate for front cover           |pt_front|
-Acrylic adaptor plate   2          Transparent acrylic adaptor                         |pt_adaptor|
+Acrylic adaptor plate   2          Transparent acrylic adaptor                         |pt_Aadaptor|
 ======================  =========  ==================================================  ==============
+
 
 The parts are easier to find once you organize them. It's good to label similar
 looking parts beforehand, so you know exactly which part you are going to solder.
@@ -144,7 +145,9 @@ with correct values. Now, let's go through each critical piece.
    voltage is above a certain value. The black strip on one end indicates the "blocking"
    side. You will need to carefully match this strip with the PCB silkscreen.
 
-#. **Resistor**
+.. _ResistorTag:
+
+#. **_Resistor**
 
    |pt_r15| You will need to be careful about getting the resistor values right.
    Refer to the following resistor color code to determine their value:
@@ -291,39 +294,68 @@ board.
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_ButtonSwitch.jpg
    :scale: 10
 .. |pt_cap100| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-100uF.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF-scale101.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF1.jpg
    :scale: 10
 .. |pt_cap10| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-10uF.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-10uF-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-10uF.jpg
    :scale: 10
 .. |pt_cap01| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-0.1uF.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-0.1uF-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-0.1uF.jpg
    :scale: 10
 .. |pt_zener| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Zener-3.3V.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Zener-3.3V-scale101.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Zener-3.3V1.jpg
    :scale: 10
 .. |pt_1N4001| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_1N4001.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_1N4001-scale101.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_1N40011.jpg
    :scale: 10
 .. |pt_res16k| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-16KOhm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-16KOhm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-16KOhm.jpg
    :scale: 10
 .. |pt_res10k| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-10KOhm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-10KOhm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-10KOhm.jpg
    :scale: 10
 .. |pt_res390| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-390Ohm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-390Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-390Ohm.jpg
    :scale: 10
 .. |pt_res330| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-330Ohm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-330Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-330Ohm.jpg
    :scale: 10
 .. |pt_res300| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-300Ohm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-300Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-300Ohm.jpg
    :scale: 10
 .. |pt_res240| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-240Ohm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-240Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-240Ohm.jpg
    :scale: 10
 .. |pt_res15| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-15Ohm.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-15Ohm-scale101.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-15Ohm1.jpg
    :scale: 10
 .. |pt_ledAmber| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LED-Yellow.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_LED-Yellow-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_LED-Yellow.jpg
    :scale: 10
 .. |pt_ledRed| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LED-Red.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_LED-Red-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_LED-Red.jpg
    :scale: 10
 .. |pt_buzz| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Buzz.JPG
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Buzz-scale10.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Buzz.jpg
    :scale: 10
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_DualHeader-scale10.jpg
 .. |pt_adaptor| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_WallAdaptor-AC-9VDC.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_WallAdaptor-AC-9VDC-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_WallAdaptor-AC-9VDC.jpg
    :scale: 10
 .. |pt_header1| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_SingleHeader.JPG
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_SingleHeader-scale10.jpg
@@ -334,8 +366,12 @@ board.
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_DualHeader.jpg
    :scale: 10
 .. |pt_ledmtx| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LEDMatrix-32x8.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_LEDMatrix-32x8-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_LEDMatrix-32x8.jpg
    :scale: 10
 .. |pt_conn| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Connector-LEDMatrix-PCB.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Connector-LEDMatrix-PCB-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Connector-LEDMatrix-PCB.jpg
    :scale: 10
 
 .. |pt_spacer1| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Spacer-1-4.JPG
@@ -366,7 +402,7 @@ board.
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_FrontCover-scale10.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_FrontCover.jpg
    :scale: 10
-.. |pt_adaptor| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Adaptor.JPG
+.. |pt_Aadaptor| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Adaptor.JPG
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Adaptor-scale10.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Adaptor.jpg
    :scale: 10
