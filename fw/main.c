@@ -507,7 +507,7 @@ void mode_msg(char *strbuf, int i)
   // play_tone(A5, 4); _delay_ms(5);
   // play_tone(B5, 5); _delay_ms(5);
   // play_tone(E5, 8);
-  ht1632_scrollstr(strbuf, i, 20);
+  ht1632_scrollstr(strbuf, i, 40);
 }
 
 
@@ -558,9 +558,15 @@ int main()
 
   sei(); // turn on interrupt handler
 
-  strncpy(strbuf, "hello: ", 7);
-  sprintf(&strbuf[7], "%d", OSCCAL);
-  ht1632_scrollstr(strbuf, 10, 10);
+  // strncpy(strbuf, "ready: ", 7);
+  // sprintf(&strbuf[7], "%d", OSCCAL);
+  // ht1632_scrollstr(strbuf, 10, 10);
+  int start = 5;
+  ht1632_putchar(start,1,'L'); 
+  ht1632_putchar(start+6,1,'E'); 
+  ht1632_putchar(start+12,1,'D'); 
+  ht1632_putchar(start+18,1,'I'); 
+  delay_ms(5000); 
 
   set_time(timebuf);
   disp_time(timebuf);
