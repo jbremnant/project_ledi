@@ -57,7 +57,7 @@ Let's go through the detailed steps below. We suggest you set aside about
 1.5 hours to build the kit. We will tackle one section at a time. Before
 you know it, you will get things rolling very soon.
 
-If you've never soldered anything before, it might be good to do some prep reading.
+If you've never soldered before, it might be good to do some prep reading.
 There are lots of great videos and tutorials online. Here are few:
 
 * `Sparkfun tutorial <http://www.sparkfun.com/tutorials/106>`_.
@@ -218,8 +218,9 @@ to the ground through-hole, which is denoted with a minus "-" sign.
 
 |tut_pwr1|
 
-Here's how I setup my parts before soldering. Notice the legs are bent so that
-they are held stationary as I solder them permanently in place.
+Here's how I placed the parts before soldering. Notice the legs are bent on the
+other side of the PCB so that they are held stationary as I solder them permanently
+in place.
 
 |tut_pwr2|
 
