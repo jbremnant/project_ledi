@@ -7,7 +7,7 @@
 0x01 Introduction to LEDI
 =========================
 
-LEDI, short for LED Interface, is your own personal display device that you can
+LEDI, short for **LED I** nterface, is your own personal display device that you can
 build, control, and modify. It can receive messages from bluetooth devices or
 from host PC and display it to the LED matrix board.
 

@@ -1,27 +1,27 @@
-:title: 0x02 Assemby Instructions
+:title: 0x02 Assembly Instructions
 :id: 1400
 :type: page
 :parent_id: 1022
 
 
-0x02 Assemby Instructions
-=========================
+0x02 Assembly Instructions
+==========================
 
-You just got your LEDI as DIY kit. But what are all these parts? You might be
-feeling overwhelmed with the thought of putting it all together? Don't worry!
+You just got your LEDI as DIY kit. But what are all these parts? Perhaps you 
+are overwhelmed with the thought of putting it all together? Don't worry!
 It's a lot simpler than you might think.
 
 |assembly-indexed|
 
 You should see the following items in your LEDI DIY kit package:
 
-* A1: 32x8 LED matrix
-* A2: Connector between LED matrix and PCB
-* B : LEDI PCB
-* C1: Dedicated parts on foam
-* C2: A bag of small components
-* C3: Bluetooth module
-* D : AC to 9V DC wall adaptor
+* **A1**: 32x8 LED matrix
+* **A2**: Connector between LED matrix and PCB
+* **B** : LEDI PCB
+* **C1**: Dedicated parts on foam
+* **C2**: A bag of small components
+* **C3**: Bluetooth module
+* **D** : AC to 9V DC wall adaptor
 
 Preparation
 -----------
@@ -29,11 +29,22 @@ Preparation
 Assembling LEDI is straight-forward and fun. We will guide you through each
 step. First, you will need to have the following tools ready:
 
-* soldering iron
-* solder (Lead free preferable)
-* flux
-* digital multimeter
-* some patience  :-)
+====================================  ====================
+Tool                                  Looks Like
+====================================  ====================
+1. soldering_ iron                     |soldering_iron|
+2. solder_ (Lead free preferable)      |solder|
+3. flux_ (good to have)               |flux_pen|
+4. digital multimeter_ (optional)      |multimeter|
+====================================  ====================
+
+.. _flux: https://www.sparkfun.com/products/8967
+.. _solder: https://www.sparkfun.com/products/9325
+.. _soldering: http://www.adafruit.com/category/8_84
+.. _multimeter: https://www.sparkfun.com/products/9141
+
+
+Lastly, some patience.  :-)
 
 Here are the steps we will take
 
@@ -46,11 +57,18 @@ Let's go through the detailed steps below. We suggest you set aside about
 1.5 hours to build the kit. We will tackle one section at a time. Before
 you know it, you will get things rolling very soon.
 
+If you've never soldered anything before, it might be good to do some prep reading.
+There are lots of great videos and tutorials online. Here are few:
+
+* `Sparkfun tutorial <http://www.sparkfun.com/tutorials/106>`_.
+* `Adafruit tutorial <http://www.ladyada.net/learn/soldering/thm.html>`_.
+* `this one <http://www.aaroncake.net/electronics/solder.htm>`_ 
+
 
 Laying It All Out
 -----------------
 
-There are a total of 35 parts in LEDI. Here's a complete list of all the parts
+There are total of 30 parts in LEDI. Here's a complete list of all the parts
 and brief description of each one. Each part is accompanied by clickable image to help
 identify it easily.
 
@@ -89,7 +107,7 @@ LED matrix            1          32x8 LED matrix                                
 Serial connector      1          Connector for LED matrix and PCB                    |pt_conn|
 ====================  =========  ==================================================  ==============
 
-^Resistors may come in different color and number of stripes depending on manufacturer,
+Resistors may come in different color and number of stripes depending on manufacturer,
 the strip color specified above only indicates the resistor value portion.
 Please refer to the Resistor_ section for detail.
 
@@ -108,11 +126,6 @@ Acrylic front plate     1          Transparent acrylic plate for front cover    
 Acrylic adaptor plate   2          Transparent acrylic adaptor                         |pt_Aadaptor|
 ======================  =========  ==================================================  ==============
 
-The parts are easier to find once you organize them. It's good to label similar
-looking parts beforehand, so you know exactly which part you are going to solder.
-For example, here's how I organized the parts before soldering.
-
-|parts1|
 
 
 Take Note!
@@ -128,7 +141,7 @@ with correct values. Now, let's go through each critical piece.
 #. **Electrolytic Capacitor** (`wiki capacitor <http://en.wikipedia.org/wiki/Electrolytic_capacitor>`_)
 
    |pt_cap1| They look like aluminum cylinders wrapped in black plastic with one short and
-   one long leg. *The short leg is the negative (-) terminal*! This negative terminal
+   one long leg. **The short leg is the negative (-) terminal**! This negative terminal
    is also indicated on the plastic covering. The plastic cover will have a strip going
    down on the negative terminal side. The negative terminal connects to GROUND.
 
@@ -137,7 +150,7 @@ with correct values. Now, let's go through each critical piece.
    |pt_diode| This part looks like a small black cynlinder. They allow current to flow in one
    direction and not in the other. A small white strip on one end indicates the blocking
    side. You will need to look at the PCB carefully and make sure the side with the 
-   strip is properly aligned with the indicated strip on the PCB silkscreen.
+   strip is properly aligned with the indicated strip on the PCB silkscreen (white labels on PCB).
 
 #. **Zener Diode 3.3v** (`wiki zener diode <http://en.wikipedia.org/wiki/Zener_diode>`_)
 
@@ -146,12 +159,13 @@ with correct values. Now, let's go through each critical piece.
    voltage is above a certain value. The black strip on one end indicates the "blocking"
    side. You will need to carefully match this strip with the PCB silkscreen.
 
-#. **Zener Diode 3.3v** (`wiki zener diode <http://en.wikipedia.org/wiki/Zener_diode>`_)
+#. **LED** (`light-emitting diode <http://en.wikipedia.org/wiki/LED>`_)
 
-   |pt_zdiode| This part also looks like a cylinder, but in orange. It is similar to the diode
-   described above, but allows current to flow in the reverse direction when the
-   voltage is above a certain value. The black strip on one end indicates the "blocking"
-   side. You will need to carefully match this strip with the PCB silkscreen.
+   |pt_ledRed| One of the most common parts you can find in electronic kits or even at your
+   local RadioShack, this part also has two legs - one short, one long. The short leg is the
+   (-) terminal. Make sure the shorter leg connects to GROUND.
+
+.. _Resistor:
 
 #. **Resistor**
 
@@ -160,66 +174,97 @@ with correct values. Now, let's go through each critical piece.
 
    |rescode|
 
-   For example, if you see `red - yellow - black - yellow`, you can read
+   For example, if you see `red - yellow - black - orange`, you can read
 
 ::
 
     red   yellow  black  orange
       2        4      0      1k   ==  240k
-    black   blue  black  yellow
-      0        6      0     10k   ==  60 * 10k = 600k
+
+Sometimes, the color bands are hard to distinguish on the resistor.  It's good to have a multimeter
+which can measure the resistance.
 
 
 Soldering the Parts
 -------------------
 
 Through-hole soldering is pretty fun! Make sure you work in a well ventilated room.
-Now, all you need is some solder and a soldering iron. I work in sections.
+Now, all you need is some solder and a soldering iron. 
+
+The parts are easier to find once you organize them. It's good to label similar
+looking parts beforehand, so you know exactly which part you are going to solder.
+For example, here's how I organized the parts before soldering.
+
+|parts1|
+
 It's good to complete similar parts of the circuit and then move onto the next. 
 This way, you can make sure you got all the parts soldered in the right place,
 instead of jumping around the circuit. (not literally!)
 
+LEDI circuit can be roughly divided into 4 sections. We will complete each section
+at a time before moving onto the next. 
 
-Bluetooth module
-~~~~~~~~~~~~~~~~
-Let's tackle the hardest part first. And you will find that the rest of what follows
-is a breeze. First place the bluetooth module on the PCB. You will solder just one
-pad on each side first. This will hold the module in place. You will only need to
-solder 8 joints on the module. The rest of the pads can be left as is.
+|tut_overview1|
 
-It's helpful to have flux handy. The flux helps the solder to flow onto the pads easily.
-If you happen to have it, you can "tin" the pads by
-
-  #. apply little bit of flux onto the pads
-  #. put some solder on the soldering iron, and pass it over the pads.
-
-At this point, the solder will flow to the pads and settle. Once the pads are tinned
-with solder, you can simply set the bluetooth module on top, and touch the pad to
-reflow the solder onto the bluetooth connection grooves.
+You will soon see that soldering LEDI board is easy and straight-forward.
 
  
 Power supply circuit
 ~~~~~~~~~~~~~~~~~~~~
- 
 You will need to be careful about the polarity of the electrolyte capacitors.
 The shorter leg is the negative side. It's this shorter leg that will connect
 to ground. The same goes for the power indicator LED. The shorter leg connects
 to the ground through-hole, which is denoted with a minus "-" sign.
 
+|tut_pwr1|
+
 Here's how I setup my parts before soldering. Notice the legs are bent so that
 they are held stationary as I solder them permanently in place.
- 
+
+|tut_pwr2|
+
+
+Bluetooth module
+~~~~~~~~~~~~~~~~
+The bluetooth module is the hardest part to solder. You will find that the rest of
+what follows is a breeze. First place the bluetooth module on the PCB.
+You will solder just one pad on each side first. This will hold the module in place.
+
+You will only need to solder 11 joints on the module. The rest of the pads does not need 
+to be soldered. Those 11 joints are indicated by orange circle below:
+
+|tut_bt2|
+
+If you have the flux handy, it helps the solder to flow onto the pads easily.
+You can use it to "tin" the pads by
+
+#. applying little bit of flux onto the PCB pads
+#. put some solder on the soldering iron, and gently pass it over the pads
+
+At this point, the solder will flow to the pads and settle. Once the pads are tinned
+with solder, you can simply set the bluetooth module on top, and touch the pad to
+reflow the solder onto the bluetooth connection grooves.
+
+Once the bluetooth module is soldered, solder the indicator LED and resistors 
+around the bluetooth module. The headers are optional, unless you plan to hack around
+with LEDI later on.
+
 
 Zener diode voltage regulator circuit 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
 It's crucial to get the resistor value right here. You will need 15 Ohm (not 15k!!!)
-resistor, a zener diode, and a 0.1uF capacitor. Place the parts like so:
+resistor, a zener diode, and a 0.1uF capacitor. As a reminder, resistor strip colors are::
+     
+      1     5    0x  tolerance  ==  15 ohm
+  brown green black  gold
 
+The zener diode need special attention as well. Make sure you align the black strip
+side with the side that has white line on the PCB. It should look like the following picture.
 
-And then solder them in place. You can then add the push button that will allow you
-to reset the bluetooth module. Optionally, you can add the headers that will give you
-access to the bluetooth module.s UART ports.
+|tut_zener1|
+
+You can then add the push button that will allow you to reset the bluetooth module.
+Optionally, you can add the headers that will give you access to the bluetooth module's UART ports.
 
 After this circuit is built, you are ready to do your first test! Simply plug in the 9V
 power adaptor to the wall, and connect the barrel jack to the board. Take a deep breath
@@ -233,20 +278,66 @@ parts correctly.
 
 Atmega328p microcontroller and headers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This is the easiest part of the circuit. You have one pull up resistor (10k ohm), 3 buttons,
+watch crystal (32.768kHz) and IC socket. The microcontroller will be inserted into the IC
+socket once everything is soldered in place.
 
-This is the easiest part of the circuit. You have 4 resistors, 3 buttons, and IC socket.
-Solder them just like you did with other previous parts.
- 
+The 2x3 header on the bottom right corner is a must if you plan on flashing the firmware.
+By default, LEDI will come preloaded with the most recent firmware. However, if you plan
+on doing firmware development and modify functionality, solder the 2x3 header there.
+
+Also, the 1x8 header gives you access to unused I/O pins on the microcontroller. Solder this
+too if you want to make LEDI interface with other electronics.
+
+
 
 
 Testing the Circuit
 -------------------
 
-Connect the LED matrix to the circuit board. The ribbon cable has a red strip on one end.
-The red strip denotes the first pin. Align this with the pin labelled CS1 on the circuit
-board.
+Now you are finally ready to test the whole thing!
+Let's first connect the LED matrix to the circuit board.
+
+Note that the ribbon cable has a red strip on one end. The red strip denotes the first pin.
+Align this with the pin labelled CS1 on the circuit board.
+The PCB side of the ribbon cable connection looks like this:
+
+|tut_conn1|
+
+Don't mind the other device on the picture right now (`little wire <http://littlewire.cc/>`_) -
+this device can help flash the firmware of LEDI.
+
+Connect the other side of the ribbon cable to the LED matrix. Make sure your DIP switch on the
+LED matrix board looks like this:
+
+.. leesa, picture of the 1,2,3,4 switch on the backside of LED board
 
 
+Once connected, time to power it on!
+Connect the included 9VDC adaptor to the barrel jack, and plug it to the wall outlet.
+Now, take a deep breath again and switch the power to **on**.
+Did you see the sign "LEDI" on the LED matrix board? If so, congratulations!
+You have successfully assembled LEDI.
+
+There's so much more to play around with. Check out our other tutorials to explore many
+exciting projects with LEDI.
+
+
+
+.. |tut_overview1| image:: /nas/docs/techversat/web/product_img/tut_overview1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/tut_overview1.jpg
+.. |tut_pwr1| image:: /nas/docs/techversat/web/product_img/tut_pwr1.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/tut_pwr1.jpg
+.. |tut_pwr2| image:: /nas/docs/techversat/web/product_img/tut_pwr2.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/tut_pwr2.jpg
+.. |tut_bt1| image:: /nas/docs/techversat/web/product_img/tut_bt1.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/tut_bt1.jpg
+.. |tut_bt2| image:: /nas/docs/techversat/web/product_img/tut_bt2.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/tut_bt2.jpg
+.. |tut_zener1| image:: /nas/docs/techversat/web/product_img/tut_zener1.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/tut_zener11.jpg
+.. |tut_conn1| image:: /nas/docs/techversat/web/product_img/tut_conn1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/tut_conn1.jpg
 
 .. |pcb1| image:: http://techversat.com/wp-content/uploads/2012/09/tut_pcb_close.jpg
    :uploaded: http://techversat.com/wp-content/uploads/tut_pcb_close.jpg
@@ -261,6 +352,15 @@ board.
    :uploaded: http://techversat.com/wp-content/uploads/P1090137.jpg
 .. |assembly-indexed| image:: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_All-indexed.JPG
    :uploaded: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_All-indexed.JPG
+
+.. |soldering_iron| image:: http://www.mouser.com/images/cooperind/images/wtcpt_300.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/wtcpt_300.jpg
+.. |solder| image:: http://www.adafruit.com/images/medium/ID734_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ID734_MED.jpg
+.. |flux_pen| image:: https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/9/6/7/08967-03-L_i_ma.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/08967-03-L_i_ma.jpg
+.. |multimeter| image:: https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/1/4/1/09141-01B-Working_i_ma.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/09141-01B-Working_i_ma.jpg
  
 .. parts list
 .. |pt_mcu| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_MCU.JPG
@@ -299,9 +399,6 @@ board.
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_ButtonSwitch-scale10.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_ButtonSwitch.jpg
    :scale: 10
-.. |pt_header2| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_DualHeader.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_DualHeader-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_DualHeader.jpg
 .. |pt_cap100| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-100uF.JPG
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF-scale101.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF1.jpg

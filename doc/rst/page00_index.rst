@@ -11,14 +11,14 @@ Here are the list of available tutorials. Each one is sufficiently self-containe
 can jump from topic to topic without much concerns for discontinuity. However, if you
 are just starting out, it is advisable to go through at least sections 0x01 - 0x03.
 
-|introledi2|
+|introledi1|
 
 
 * `0x01 Introduction to LEDI <http://techversat.com/projects/ledi/introduction-to-ledi/>`_
    Short Introduction. Discusses the major features of LEDI.
 
 
-* `0x02 Assemby Instructions <http://techversat.com/projects/ledi/assemby-instructions/>`_
+* `0x02 Assembly Instructions <http://techversat.com/projects/ledi/assemby-instructions/>`_
    Shows how to assemble your DIY kit.
 
 
@@ -57,3 +57,5 @@ are just starting out, it is advisable to go through at least sections 0x01 - 0x
    :scale: 10
 .. |introledi2| image:: /nas/docs/techversat/web/product_img/P1090129.JPG
    :uploaded: http://techversat.com/wp-content/uploads/P10901291.jpg
+.. |introledi1| image:: /nas/docs/techversat/web/product_img/ledi_narrow.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi_narrow1.jpg
