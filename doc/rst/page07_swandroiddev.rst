@@ -15,7 +15,7 @@ similar: `MetaWatch Manager <https://github.com/MetaWatchOpenProjects/MWM-for-An
 
 A Bit About Android
 -------------------
-Back to Android. It takes a bit of education to understand the Android. Android development
+Back to Android. It takes a bit of education to understand Android. Android development
 is different from traditional software development, where you implement all the functionality
 from scratch. A simple program typically involves defining overall structure and writing specific
 functions, then calling them to carry out specific set of tasks.
@@ -30,13 +30,13 @@ summed up in this sentence: "Don't call us, we will call you".
 
 While there is an abundance of resources for Android
 (`google android dev <http://developer.android.com/training/index.html>`_),
-`this book <http://www.amazon.com/Programming-Android-Zigurd-Mednieks/dp/1449389694>`_
-is worth a read if you are serious about Android programming.
+I found `this book <http://www.amazon.com/Programming-Android-Zigurd-Mednieks/dp/1449389694>`_
+very useful when I was learning Android programming. 
 
 
 Overall Structure
 -----------------
-There's an **Activity** and **Service** embedded in LEDI Manager. The **Service** component
+There's **Activity** and **Service** within the LEDI Manager App. The **Service** component
 is the core of the App. It starts a background thread that:
 
 #. subscribes from other services (like gmail, sms) and monitors their **Intent** broadcasts 
