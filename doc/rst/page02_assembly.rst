@@ -9,7 +9,18 @@
 
 You just got your LEDI as DIY kit. But what are all these parts? Perhaps you 
 are overwhelmed with the thought of putting it all together? Don't worry!
-It's a lot simpler than you might think.
+It's a lot simpler than you might think. In this page, we are going to show you:
+
+* `What Inside The Bag`_
+* Preparation_
+* `Laying Out Components`_
+* `Components Explaination`_
+* `Soldering the Parts`_
+* `Testing the Circuit`_
+* `Assemblying the Enclosure`_
+
+What Inside The Bag
+--------------------
 
 |assembly-indexed|
 
@@ -65,8 +76,8 @@ There are lots of great videos and tutorials online. Here are few:
 * `this one <http://www.aaroncake.net/electronics/solder.htm>`_ 
 
 
-Laying It All Out
------------------
+Laying Out Components
+-----------------------
 
 There are total of 30 parts in LEDI. Here's a complete list of all the parts
 and brief description of each one. Each part is accompanied by clickable image to help
@@ -128,8 +139,8 @@ Acrylic adaptor plate   2          Transparent acrylic adaptor                  
 
 
 
-Take Note!
-----------
+Components Explaination
+------------------------
 
 Before assembly, you will need to take couple of things into account.
 Understanding this section will ensure successful completion of your build.
@@ -323,6 +334,17 @@ You have successfully assembled LEDI.
 There's so much more to play around with. Check out our other tutorials to explore many
 exciting projects with LEDI.
 
+Assemblying the Enclosure
+--------------------------
+Now that the PCB and LED matrix work well, time to put a little cosmetic on it. Depending on your personl preference, you can 
+#. Just leave the parts on your desk.
+#. Put the parts together with our customed made acrylic enclosure.
+#. Use bricks to make the LEDI into a piece of artwork. 
+#. Or even print your own enclosure if you have a 3D printer.
+
+If you opt to use our customed made acrylic enclosure, here's the detail instruction for the assembly.
+
+.. leesa, some pics and stuff... 
 
 
 .. |tut_overview1| image:: /nas/docs/techversat/web/product_img/tut_overview1.jpg
