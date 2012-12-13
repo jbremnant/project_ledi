@@ -20,7 +20,7 @@ It's a lot simpler than you might think. In this page, we are going to show you:
 * `Assemblying the Enclosure`_
 
 What Inside The Bag
---------------------
+-------------------
 
 |assembly-indexed|
 
@@ -43,25 +43,34 @@ step. First, you will need to have the following tools ready:
 ====================================  ====================
 Tool                                  Looks Like
 ====================================  ====================
-1. soldering_ iron                     |soldering_iron|
-2. solder_ (Lead free preferable)      |solder|
+1. soldering_ iron                    |soldering_iron|
+2. solder_ (Lead free preferable)     |solder|
 3. flux_ (good to have)               |flux_pen|
-4. digital multimeter_ (optional)      |multimeter|
+4. digital multimeter_ (optional)     |multimeter|
+5. wire cutter_                       |wirecutter|
+6. solder wick_  (optional)           |solderwick|
+7. solder sucker_ (optional)          |soldersucker|
 ====================================  ====================
 
 .. _flux: https://www.sparkfun.com/products/8967
 .. _solder: https://www.sparkfun.com/products/9325
 .. _soldering: http://www.adafruit.com/category/8_84
 .. _multimeter: https://www.sparkfun.com/products/9141
-
+.. _cutter: http://www.adafruit.com/products/152 
+.. _wick: http://www.adafruit.com/products/149
+.. _sucker: http://www.adafruit.com/products/148
 
 Lastly, some patience.  :-)
+
+The flux, solder wick, and solder sucker are optional. However, they are good
+tools to help ammend mistakes. If you are soldering for the first time, we 
+highly recommend getting those as well.
 
 Here are the steps we will take
 
 #. Organize the parts
 #. Solder
-#. Download the Android app on your phone
+#. Test the circuit
 #. Play with it!
 
 Let's go through the detailed steps below. We suggest you set aside about
@@ -77,7 +86,7 @@ There are lots of great videos and tutorials online. Here are few:
 
 
 Laying Out Components
------------------------
+---------------------
 
 There are total of 30 parts in LEDI. Here's a complete list of all the parts
 and brief description of each one. Each part is accompanied by clickable image to help
@@ -86,10 +95,10 @@ identify it easily.
 ====================  =========  ==================================================  ==============
 Name                  Quantity   Description                                         Image
 ====================  =========  ==================================================  ==============
-Atmega328p            1          the brain of LEDI, microcontroller with 28 pins     |pt_mcu|
+Atmega328p_           1          the brain of LEDI, microcontroller with 28 pins     |pt_mcu|
 28 pin DIP socket     1          socket for the microcontroller
 LEDI PCB              1          PCB (red/green)                                     |pt_pcb|
-HC-06/05 Bluetooth    1          bluetooth module for wireless communication         |pt_bt|
+HC-05_,06 Bluetooth   1          bluetooth module for wireless communication         |pt_bt|
 LDO Regulator         1          regulates 9VDC input into 5V or 3.3V                |pt_ldo|
 PTC resetable fuse    1          orange ceremic fuse .25A                            |pt_ptc|
 Crystal               1          32.768KHz, silver cylinder shape                    |pt_crystal|
@@ -118,6 +127,10 @@ LED matrix            1          32x8 LED matrix                                
 Serial connector      1          Connector for LED matrix and PCB                    |pt_conn|
 ====================  =========  ==================================================  ==============
 
+.. _Atmega328p: http://www.atmel.com/devices/atmega328p.aspx
+.. _HC-05: http://imall.iteadstudio.com/prototyping/basic-module/im120723009.html
+
+
 Resistors may come in different color and number of stripes depending on manufacturer,
 the strip color specified above only indicates the resistor value portion.
 Please refer to the Resistor_ section for detail.
@@ -138,9 +151,8 @@ Acrylic adaptor plate   2          Transparent acrylic adaptor                  
 ======================  =========  ==================================================  ==============
 
 
-
 Components Explaination
-------------------------
+-----------------------
 
 Before assembly, you will need to take couple of things into account.
 Understanding this section will ensure successful completion of your build.
@@ -181,6 +193,8 @@ with correct values. Now, let's go through each critical piece.
 #. **Resistor**
 
    |pt_r15| You will need to be careful about getting the resistor values right.
+   Unlike other components discussed, the orientation does NOT matter. You can stick
+   in the resistor in either direction onto the PCB. 
    Refer to the following resistor color code to determine their value:
 
    |rescode|
@@ -200,7 +214,10 @@ Soldering the Parts
 -------------------
 
 Through-hole soldering is pretty fun! Make sure you work in a well ventilated room.
-Now, all you need is some solder and a soldering iron. 
+Now, all you need is some solder and a soldering iron. When we are done with the
+assembly, your LEDI board will look like this:
+
+|completed1|
 
 The parts are easier to find once you organize them. It's good to label similar
 looking parts beforehand, so you know exactly which part you are going to solder.
@@ -294,6 +311,8 @@ This is the easiest part of the circuit. You have one pull up resistor (10k ohm)
 watch crystal (32.768kHz) and IC socket. The microcontroller will be inserted into the IC
 socket once everything is soldered in place.
 
+|mcusection1|
+
 The 2x3 header on the bottom right corner is a must if you plan on flashing the firmware.
 By default, LEDI will come preloaded with the most recent firmware. However, if you plan
 on doing firmware development and modify functionality, solder the 2x3 header there.
@@ -362,6 +381,11 @@ If you opt to use our customed made acrylic enclosure, here's the detail instruc
 .. |tut_conn1| image:: /nas/docs/techversat/web/product_img/tut_conn1.jpg
    :uploaded: http://techversat.com/wp-content/uploads/tut_conn1.jpg
 
+.. |completed1| image:: /nas/docs/techversat/web/product_img/completed1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/completed11.jpg
+.. |completed2| image:: /nas/docs/techversat/web/product_img/completed_crop.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/completed_crop.jpg
+
 .. |pcb1| image:: http://techversat.com/wp-content/uploads/2012/09/tut_pcb_close.jpg
    :uploaded: http://techversat.com/wp-content/uploads/tut_pcb_close.jpg
 .. |parts1| image:: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_SmallComponents.JPG
@@ -376,6 +400,9 @@ If you opt to use our customed made acrylic enclosure, here's the detail instruc
 .. |assembly-indexed| image:: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_All-indexed.JPG
    :uploaded: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_All-indexed.JPG
 
+.. |mcusection1| image:: /nas/docs/techversat/web/product_img/mcusection1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/mcusection1.jpg
+
 .. |soldering_iron| image:: http://www.mouser.com/images/cooperind/images/wtcpt_300.jpg
    :uploaded: http://techversat.com/wp-content/uploads/wtcpt_300.jpg
 .. |solder| image:: http://www.adafruit.com/images/medium/ID734_MED.jpg
@@ -384,6 +411,12 @@ If you opt to use our customed made acrylic enclosure, here's the detail instruc
    :uploaded: http://techversat.com/wp-content/uploads/08967-03-L_i_ma.jpg
 .. |multimeter| image:: https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/1/4/1/09141-01B-Working_i_ma.jpg
    :uploaded: http://techversat.com/wp-content/uploads/09141-01B-Working_i_ma.jpg
+.. |wirecutter| image:: http://www.adafruit.com/images/medium/152_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/152_MED.jpg
+.. |solderwick| image:: http://www.adafruit.com/images/medium/wick_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/wick_MED.jpg
+.. |soldersucker| image:: http://www.adafruit.com/images/medium/soldersucker_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/soldersucker_MED.jpg
  
 .. parts list
 .. |pt_mcu| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_MCU.JPG
