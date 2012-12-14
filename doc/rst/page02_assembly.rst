@@ -3,6 +3,7 @@
 :type: page
 :parent_id: 1022
 
+.. _top:
 
 0x02 Assembly Instructions
 ==========================
@@ -17,7 +18,7 @@ It's a lot simpler than you might think. In this page, we are going to show you:
 * `Components Explaination`_
 * `Soldering the Parts`_
 * `Testing the Circuit`_
-* `Assemblying the Enclosure`_
+* `Assemblying the Acrylic Mount`_
 
 What Inside The Bag
 -------------------
@@ -33,6 +34,10 @@ You should see the following items in your LEDI DIY kit package:
 * **C2**: A bag of small components
 * **C3**: Bluetooth module
 * **D** : AC to 9V DC wall adaptor
+
+`Back to top`__
+
+__ top_
 
 Preparation
 -----------
@@ -82,8 +87,11 @@ There are lots of great videos and tutorials online. Here are few:
 
 * `Sparkfun tutorial <http://www.sparkfun.com/tutorials/106>`_.
 * `Adafruit tutorial <http://www.ladyada.net/learn/soldering/thm.html>`_.
-* `this one <http://www.aaroncake.net/electronics/solder.htm>`_ 
+* `Soldering tutorial at aaroncake.net <http://www.aaroncake.net/electronics/solder.htm>`_ 
 
+`Back to top`__
+
+__ top_
 
 Laying Out Components
 ---------------------
@@ -92,50 +100,56 @@ There are total of 30 parts in LEDI. Here's a complete list of all the parts
 and brief description of each one. Each part is accompanied by clickable image to help
 identify it easily.
 
-====================  =========  ==================================================  ==============
-Name                  Quantity   Description                                         Image
-====================  =========  ==================================================  ==============
-Atmega328p_           1          the brain of LEDI, microcontroller with 28 pins     |pt_mcu|
-28 pin DIP socket     1          socket for the microcontroller
-LEDI PCB              1          PCB (red/green)                                     |pt_pcb|
-HC-05_,06 Bluetooth   1          bluetooth module for wireless communication         |pt_bt|
-LDO Regulator         1          regulates 9VDC input into 5V or 3.3V                |pt_ldo|
-PTC resetable fuse    1          orange ceremic fuse .25A                            |pt_ptc|
-Crystal               1          32.768KHz, silver cylinder shape                    |pt_crystal|
-Barrel jack           1          connector for AC adaptor                            |pt_barrel|
-Slide switch          2          on/off, 3.3/5v switch                               |pt_switch|
-Tactile push button   4          buttons with 4 small legs                           |pt_button|
-Capacitor 100uF       1          cylinder shape, aluminum, 2 leads                   |pt_cap100|
-Capacitor 10uF        1          cylinder shape, aluminum, 2 leads                   |pt_cap10|
-Capacitor 0.1uF       2          blue ceramic capacitor                              |pt_cap01|
-Zener diode 3.3v      1          small orange component with black stripe            |pt_zener|
-Rectifier 1N4001      1          to protect the power circuit                        |pt_1N4001|
-Resistor 16k Ohms     1          ^strip colors: brown,blue,black,red                 |pt_res16k|
-Resistor 10k Ohms     3          ^strip colors: brown,black,black,red                |pt_res10k|
-Resistor 390 Ohms     1          ^strip colors: orange,white,brown                   |pt_res390|
-Resistor 330 Ohms     2          ^strip colors: orange,orange,black,black            |pt_res330|
-Resistor 300 Ohms     1          ^strip colors: orange,black,brown                   |pt_res300|
-Resistor 240 Ohms     1          ^strip colors: red,yellow,brown                     |pt_res240|
-Resistor 15  Ohms     1          ^strip colors: brown,green,black,gold               |pt_res15|
-LED Red               1          red LED                                             |pt_ledRed|
-LED Amber             1          oval shape amber LED                                |pt_ledAmber|
-Piezo Buzzer          1          makes sounds                                        |pt_buzz|
-Header Single row     1          12 pins single row headers for breakout pins        |pt_header1|
-Header Dual row       1          2 x 15 header for connecting ribbon cable           |pt_header2|
-AC-9V DC adaptor      1          AC to 9V DC wall adaptor                            |pt_adaptor|
-LED matrix            1          32x8 LED matrix                                     |pt_ledmtx|
-Serial connector      1          Connector for LED matrix and PCB                    |pt_conn|
-====================  =========  ==================================================  ==============
+=======================  =========  ==================================================  ==============
+Name                     Quantity   Description                                         Image
+=======================  =========  ==================================================  ==============
+Atmega328p_              1          the brain of LEDI, microcontroller with 28 pins     |pt_mcu|
+`28 pin DIP socket`_     1          socket for the microcontroller                      |pt_soc|
+`LEDI PCB`_              1          PCB (red/green)                                     |pt_pcb|
+HC-05_, 06_ Bluetooth    1          bluetooth module for wireless communication         |pt_bt|
+`LDO Regulator`_         1          regulates 9VDC input into 5V or 3.3V                |pt_ldo|
+`PTC resetable fuse`_    1          orange ceremic fuse .25A                            |pt_ptc|
+`Crystal Oscillator`_    1          32.768KHz, silver cylinder shape                    |pt_crystal|
+`Barrel jack`_           1          connector for AC adaptor                            |pt_barrel|
+Slide switch             2          on/off, 3.3/5v switch                               |pt_switch|
+Tactile push button      4          buttons with 4 small legs                           |pt_button|
+Capacitor_ 100uF         1          cylinder shape, aluminum, 2 leads                   |pt_cap100|
+Capacitor_ 10uF          1          cylinder shape, aluminum, 2 leads                   |pt_cap10|
+Capacitor_ 0.1uF         2          blue ceramic capacitor                              |pt_cap01|
+`Zener Diode 3.3v`_      1          small orange component with black stripe            |pt_zener|
+Rectifier_ 1N4001        1          convert AC to DC current                            |pt_1N4001|
+Resistor_ 16k Ohms       1          ^strip colors: brown,blue,black,red                 |pt_res16k|
+Resistor_ 10k Ohms       3          ^strip colors: brown,black,black,red                |pt_res10k|
+Resistor_ 390 Ohms       1          ^strip colors: orange,white,brown                   |pt_res390|
+Resistor_ 330 Ohms       2          ^strip colors: orange,orange,black,black            |pt_res330|
+Resistor_ 300 Ohms       1          ^strip colors: orange,black,brown                   |pt_res300|
+Resistor_ 240 Ohms       1          ^strip colors: red,yellow,brown                     |pt_res240|
+Resistor_ 15  Ohms       1          ^strip colors: brown,green,black,gold               |pt_res15|
+LED_ Red                 1          red LED                                             |pt_ledRed|
+LED_ Amber               1          oval shape amber LED                                |pt_ledAmber|
+Piezo Buzzer             1          makes sounds                                        |pt_buzz|
+Header Single row        1          12 pins single row headers for breakout pins        |pt_header1|
+Header Dual row          1          2 x 15 header for connecting ribbon cable           |pt_header2|
+AC-9V DC adaptor         1          AC to 9V DC wall adaptor                            |pt_adaptor|
+LED matrix               1          32x8 LED matrix                                     |pt_ledmtx|
+Serial connector         1          Connector for LED matrix and PCB                    |pt_conn|
+=======================  =========  ==================================================  ==============
 
 .. _Atmega328p: http://www.atmel.com/devices/atmega328p.aspx
+.. _`28 pin DIP socket`: http://en.wikipedia.org/wiki/Dual_in-line_package
 .. _HC-05: http://imall.iteadstudio.com/prototyping/basic-module/im120723009.html
+.. _06: http://imall.iteadstudio.com/im120723010.html
+.. _`LDO Regulator`: http://en.wikipedia.org/wiki/Low-dropout_regulator
+.. _`PTC resetable fuse`: http://en.wikipedia.org/wiki/Resettable_fuse
+.. _`Crystal Oscillator`: http://en.wikipedia.org/wiki/Crystal_oscillator
+.. _`Barrel jack`: https://www.sparkfun.com/products/119
 
 
 Resistors may come in different color and number of stripes depending on manufacturer,
 the strip color specified above only indicates the resistor value portion.
 Please refer to the Resistor_ section for detail.
 
-**If you are purchasing the acrylic enclosure**, the package should also include:
+**If you are purchasing the acrylic mount**, the package should also include:
 
 ======================  =========  ==================================================  ==============
 Name                    Quantity   Description                                         Image
@@ -150,6 +164,11 @@ Acrylic front plate     1          Transparent acrylic plate for front cover    
 Acrylic adaptor plate   2          Transparent acrylic adaptor                         |pt_Aadaptor|
 ======================  =========  ==================================================  ==============
 
+`Back to top`__
+
+__ top_
+
+.. _Capacitor:
 
 Components Explaination
 -----------------------
@@ -168,12 +187,19 @@ with correct values. Now, let's go through each critical piece.
    is also indicated on the plastic covering. The plastic cover will have a strip going
    down on the negative terminal side. The negative terminal connects to GROUND.
 
-#. **Reverse Voltage Protection Diode** (`wiki diode <http://en.wikipedia.org/wiki/Diode>`_)
+.. _Rectifier:
 
-   |pt_diode| This part looks like a small black cynlinder. They allow current to flow in one
-   direction and not in the other. A small white strip on one end indicates the blocking
-   side. You will need to look at the PCB carefully and make sure the side with the 
-   strip is properly aligned with the indicated strip on the PCB silkscreen (white labels on PCB).
+#. **Reverse Voltage Protection Diode** (`wiki diode <http://en.wikipedia.org/wiki/Diode>`_) (`wiki rectifier <http://en.wikipedia.org/wiki/Rectifier>`_)
+
+   |pt_diode| This part looks like a small black cynlinder. It allows current to flow in one
+   direction and not in the other and therefore able to convert AC current to DC.
+   The diode 1N4001 that we are using in this project is a popular 1.0A general purpose 
+   silion rectifier diodes. 
+   A small white strip on one end indicates the blocking side. You will need to look at the 
+   PCB carefully and make sure the side with the strip is properly aligned with the indicated 
+   strip on the PCB silkscreen (white labels on PCB).
+
+.. _`Zener Diode 3.3v`:
 
 #. **Zener Diode 3.3v** (`wiki zener diode <http://en.wikipedia.org/wiki/Zener_diode>`_)
 
@@ -181,6 +207,8 @@ with correct values. Now, let's go through each critical piece.
    described above, but allows current to flow in the reverse direction when the
    voltage is above a certain value. The black strip on one end indicates the "blocking"
    side. You will need to carefully match this strip with the PCB silkscreen.
+
+.. _LED:
 
 #. **LED** (`light-emitting diode <http://en.wikipedia.org/wiki/LED>`_)
 
@@ -190,7 +218,7 @@ with correct values. Now, let's go through each critical piece.
 
 .. _Resistor:
 
-#. **Resistor**
+#. **Resistor** (`wiki resistor <http://en.wikipedia.org/wiki/Resistor>`_)
 
    |pt_r15| You will need to be careful about getting the resistor values right.
    Unlike other components discussed, the orientation does NOT matter. You can stick
@@ -209,6 +237,9 @@ with correct values. Now, let's go through each critical piece.
 Sometimes, the color bands are hard to distinguish on the resistor.  It's good to have a multimeter
 which can measure the resistance.
 
+`Back to top`__
+
+__ top_
 
 Soldering the Parts
 -------------------
@@ -228,6 +259,8 @@ For example, here's how I organized the parts before soldering.
 It's good to complete similar parts of the circuit and then move onto the next. 
 This way, you can make sure you got all the parts soldered in the right place,
 instead of jumping around the circuit. (not literally!)
+
+.. _`LEDI PCB`:
 
 LEDI circuit can be roughly divided into 4 sections. We will complete each section
 at a time before moving onto the next. 
@@ -321,6 +354,9 @@ Also, the 1x8 header gives you access to unused I/O pins on the microcontroller.
 too if you want to make LEDI interface with other electronics.
 
 
+`Back to top`__
+
+__ top_
 
 
 Testing the Circuit
@@ -353,17 +389,21 @@ You have successfully assembled LEDI.
 There's so much more to play around with. Check out our other tutorials to explore many
 exciting projects with LEDI.
 
-Assemblying the Enclosure
---------------------------
+Assemblying the Acrylic Mount
+-----------------------------
 Now that the PCB and LED matrix work well, time to put a little cosmetic on it. Depending on your personl preference, you can 
+
 #. Just leave the parts on your desk.
-#. Put the parts together with our customed made acrylic enclosure.
+#. Put the parts together with our customed made acrylic mount.
 #. Use bricks to make the LEDI into a piece of artwork. 
-#. Or even print your own enclosure if you have a 3D printer.
+#. Or even print your own mount or enclosure if you have a 3D printer.
 
-If you opt to use our customed made acrylic enclosure, here's the detail instruction for the assembly.
+If you opt to use our customed made acrylic mount, here's the detail instruction for the assembly.
 
-.. leesa, some pics and stuff... 
+
+`Back to top`__
+
+__ top_
 
 
 .. |tut_overview1| image:: /nas/docs/techversat/web/product_img/tut_overview1.jpg
@@ -423,6 +463,10 @@ If you opt to use our customed made acrylic enclosure, here's the detail instruc
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_MCU-scale10.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_MCU.jpg
    :scale: 10
+.. |pt_soc| image:: http://techversat.com/wp-content/uploads/parts_ledi_DIPSocket.jpg
+   :uploaded-scale5: http://techversat.com/wp-content/uploads/parts_ledi_DIPSocket-scale5.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_DIPSocket1.jpg
+   :scale: 5
 .. |pt_pcb| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_PCB-v1.JPG
    :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_PCB-v1-scale10.jpg
    :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_PCB-v1.jpg
