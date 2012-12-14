@@ -29,7 +29,8 @@ Preparation
 Assembling LEDI is straight-forward and fun. We will guide you through each
 step. First, you will need to have the following tools ready:
 
-* soldering iron
+* soldering iron (`adafruit soldering iron <http://www.adafruit.com/products/303>`_)
+  .. image:: http://www.adafruit.com/images/fx888.jpg
 * solder (Lead free preferable)
 * flux
 * digital multimeter
@@ -138,13 +139,6 @@ with correct values. Now, let's go through each critical piece.
    direction and not in the other. A small white strip on one end indicates the blocking
    side. You will need to look at the PCB carefully and make sure the side with the 
    strip is properly aligned with the indicated strip on the PCB silkscreen.
-
-#. **Zener Diode 3.3v** (`wiki zener diode <http://en.wikipedia.org/wiki/Zener_diode>`_)
-
-   |pt_zdiode| This part also looks like a cylinder, but in orange. It is similar to the diode
-   described above, but allows current to flow in the reverse direction when the
-   voltage is above a certain value. The black strip on one end indicates the "blocking"
-   side. You will need to carefully match this strip with the PCB silkscreen.
 
 #. **Zener Diode 3.3v** (`wiki zener diode <http://en.wikipedia.org/wiki/Zener_diode>`_)
 
