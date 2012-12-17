@@ -3,111 +3,49 @@
 :type: page
 :parent_id: 1022
 
-.. _top:
+.. _`Back to top`:
 
 0x02 Assembly Instructions
 ==========================
 
-You just got your LEDI as DIY kit. But what are all these parts? Perhaps you 
-are overwhelmed with the thought of putting it all together? Don't worry!
-It's a lot simpler than you might think. In this page, we are going to show you:
+Just got your LEDI DIY kit, so what's next? 
+In this page, we are going to show you:
 
-* `What Inside The Bag`_
-* Preparation_
-* `Laying Out Components`_
+* `What's Inside The Bag`_
 * `Components Explaination`_
+* `Tools Required`_
 * `Soldering the Parts`_
 * `Testing the Circuit`_
 * `Assemblying the Acrylic Mount`_
 
-What Inside The Bag
--------------------
+What's Inside The Bag
+----------------------
 
 |assembly-indexed|
 
 You should see the following items in your LEDI DIY kit package:
 
-* **A1**: 32x8 LED matrix
-* **A2**: Connector between LED matrix and PCB
-* **B** : LEDI PCB
-* **C1**: Dedicated parts on foam
-* **C2**: A bag of small components
-* **C3**: Bluetooth module
-* **D** : AC to 9V DC wall adaptor
+===========  =========  ==================================================  ==============
+Name         Quantity   Description                                         Image
+===========  =========  ==================================================  ==============
+A1           1          32x8 LED matrix                                     |pt_ledmtx|
+A2           1          Connector for LED matrix and PCB                    |pt_conn|
+B            1          `LEDI PCB`_                                         |pt_pcb|
+C1,C2                   `Components List`_
+C3           1          `Bluetooth module`_                                 |pt_bt|
+D            1          AC to 9V DC wall adaptor                            |pt_adaptor|
+===========  =========  ==================================================  ==============
 
-`Back to top`__
 
-__ top_
 
-Preparation
------------
-
-Assembling LEDI is straight-forward and fun. We will guide you through each
-step. First, you will need to have the following tools ready:
-
-====================================  ====================
-Tool                                  Looks Like
-====================================  ====================
-1. soldering_ iron                    |soldering_iron|
-2. solder_ (Lead free preferable)     |solder|
-3. flux_ (good to have)               |flux_pen|
-4. digital multimeter_ (optional)     |multimeter|
-5. wire cutter_                       |wirecutter|
-6. solder wick_  (optional)           |solderwick|
-7. solder sucker_ (optional)          |soldersucker|
-====================================  ====================
-
-.. _flux: https://www.sparkfun.com/products/8967
-.. _solder: https://www.sparkfun.com/products/9325
-.. _soldering: http://www.adafruit.com/category/8_84
-.. _multimeter: https://www.sparkfun.com/products/9141
-.. _cutter: http://www.adafruit.com/products/152 
-.. _wick: http://www.adafruit.com/products/149
-.. _sucker: http://www.adafruit.com/products/148
-
-Lastly, some patience.  :-)
-
-The flux, solder wick, and solder sucker are optional. However, they are good
-tools to help ammend mistakes. If you are soldering for the first time, we 
-highly recommend getting those as well.
->>>>>>> d5e6279909254ef9c120783a95221d099ad70dae
-
-Here are the steps we will take
-
-#. Organize the parts
-#. Solder
-#. Test the circuit
-#. Play with it!
-
-Let's go through the detailed steps below. We suggest you set aside about
-1.5 hours to build the kit. We will tackle one section at a time. Before
-you know it, you will get things rolling very soon.
-
-If you've never soldered before, it might be good to do some prep reading.
-There are lots of great videos and tutorials online. Here are few:
-
-* `Sparkfun tutorial <http://www.sparkfun.com/tutorials/106>`_.
-* `Adafruit tutorial <http://www.ladyada.net/learn/soldering/thm.html>`_.
-* `Soldering tutorial at aaroncake.net <http://www.aaroncake.net/electronics/solder.htm>`_ 
-
-`Back to top`__
-
-__ top_
-
-Laying Out Components
----------------------
-
-There are total of 30 parts in LEDI. Here's a complete list of all the parts
-and brief description of each one. Each part is accompanied by clickable image to help
-identify it easily.
+Components List
+~~~~~~~~~~~~~~~
 
 =======================  =========  ==================================================  ==============
 Name                     Quantity   Description                                         Image
 =======================  =========  ==================================================  ==============
 Atmega328p_              1          the brain of LEDI, microcontroller with 28 pins     |pt_mcu|
 `28 pin DIP socket`_     1          socket for the microcontroller                      |pt_soc|
-`LEDI PCB`_              1          PCB (red/green)                                     |pt_pcb|
-HC-05_, 06_ Bluetooth    1          bluetooth module for wireless communication         |pt_bt|
 `LDO Regulator`_         1          regulates 9VDC input into 5V or 3.3V                |pt_ldo|
 `PTC resetable fuse`_    1          orange ceremic fuse .25A                            |pt_ptc|
 `Crystal Oscillator`_    1          32.768KHz, silver cylinder shape                    |pt_crystal|
@@ -131,20 +69,15 @@ LED_ Amber               1          oval shape amber LED                        
 Piezo Buzzer             1          makes sounds                                        |pt_buzz|
 Header Single row        1          12 pins single row headers for breakout pins        |pt_header1|
 Header Dual row          1          2 x 15 header for connecting ribbon cable           |pt_header2|
-AC-9V DC adaptor         1          AC to 9V DC wall adaptor                            |pt_adaptor|
-LED matrix               1          32x8 LED matrix                                     |pt_ledmtx|
-Serial connector         1          Connector for LED matrix and PCB                    |pt_conn|
 =======================  =========  ==================================================  ==============
 
+.. _`Bluetooth module`: http://imall.iteadstudio.com/prototyping/basic-module/im120723009.html
 .. _Atmega328p: http://www.atmel.com/devices/atmega328p.aspx
 .. _`28 pin DIP socket`: http://en.wikipedia.org/wiki/Dual_in-line_package
-.. _HC-05: http://imall.iteadstudio.com/prototyping/basic-module/im120723009.html
-.. _06: http://imall.iteadstudio.com/im120723010.html
 .. _`LDO Regulator`: http://en.wikipedia.org/wiki/Low-dropout_regulator
 .. _`PTC resetable fuse`: http://en.wikipedia.org/wiki/Resettable_fuse
 .. _`Crystal Oscillator`: http://en.wikipedia.org/wiki/Crystal_oscillator
 .. _`Barrel jack`: https://www.sparkfun.com/products/119
-
 
 Resistors may come in different color and number of stripes depending on manufacturer,
 the strip color specified above only indicates the resistor value portion.
@@ -165,9 +98,8 @@ Acrylic front plate     1          Transparent acrylic plate for front cover    
 Acrylic adaptor plate   2          Transparent acrylic adaptor                         |pt_Aadaptor|
 ======================  =========  ==================================================  ==============
 
-`Back to top`__
+`Back to top`_
 
-__ top_
 
 .. _Capacitor:
 
@@ -238,9 +170,61 @@ with correct values. Now, let's go through each critical piece.
 Sometimes, the color bands are hard to distinguish on the resistor.  It's good to have a multimeter
 which can measure the resistance.
 
-`Back to top`__
+`Back to top`_
 
-__ top_
+Tools Required
+---------------
+
+Assembling LEDI is straight-forward and fun. We will guide you through each
+step. First, you will need to have the following tools ready:
+
+====================================  ====================
+Tool                                  Looks Like
+====================================  ====================
+1. soldering_ iron                    |soldering_iron|
+2. solder_ (Lead free preferable)     |solder|
+3. flux_ (good to have)               |flux_pen|
+4. digital multimeter_ (optional)     |multimeter|
+5. wire cutter_                       |wirecutter|
+6. solder wick_  (optional)           |solderwick|
+7. solder sucker_ (optional)          |soldersucker|
+====================================  ====================
+
+.. _flux: https://www.sparkfun.com/products/8967
+.. _solder: https://www.sparkfun.com/products/9325
+.. _soldering: http://www.adafruit.com/category/8_84
+.. _multimeter: https://www.sparkfun.com/products/9141
+.. _cutter: http://www.adafruit.com/products/152
+.. _wick: http://www.adafruit.com/products/149
+.. _sucker: http://www.adafruit.com/products/148
+
+Lastly, some patience.  :-)
+
+The flux, solder wick, and solder sucker are optional. However, they are good
+tools to help ammend mistakes. If you are soldering for the first time, we
+highly recommend getting those as well.
+>>>>>>> d5e6279909254ef9c120783a95221d099ad70dae
+
+Here are the steps we will take
+
+#. Organize the parts
+#. Solder
+#. Test the circuit
+#. Play with it!
+
+Let's go through the detailed steps below. We suggest you set aside about
+1.5 hours to build the kit. We will tackle one section at a time. Before
+you know it, you will get things rolling very soon.
+
+If you've never soldered before, it might be good to do some prep reading.
+There are lots of great videos and tutorials online. Here are few:
+
+* `Sparkfun tutorial <http://www.sparkfun.com/tutorials/106>`_.
+* `Adafruit tutorial <http://www.ladyada.net/learn/soldering/thm.html>`_.
+* `Soldering tutorial at aaroncake.net <http://www.aaroncake.net/electronics/solder.htm>`_
+
+`Back to top`_
+
 
 Soldering the Parts
 -------------------
@@ -355,9 +339,7 @@ Also, the 1x8 header gives you access to unused I/O pins on the microcontroller.
 too if you want to make LEDI interface with other electronics.
 
 
-`Back to top`__
-
-__ top_
+`Back to top`_
 
 
 Testing the Circuit
@@ -402,9 +384,7 @@ Now that the PCB and LED matrix work well, time to put a little cosmetic on it. 
 If you opt to use our customed made acrylic mount, here's the detail instruction for the assembly.
 
 
-`Back to top`__
-
-__ top_
+`Back to top`_
 
 
 .. |tut_overview1| image:: /nas/docs/techversat/web/product_img/tut_overview1.jpg
