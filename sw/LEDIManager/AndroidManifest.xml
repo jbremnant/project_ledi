@@ -46,6 +46,7 @@
         </activity>
         <activity android:name="Settings" android:launchMode="singleTask"></activity>
         <activity android:name="DeviceSelection" android:launchMode="singleTask"></activity>
+        <activity android:name="com.techversat.lediview.VirtualLEDIActivity" android:label="VirtualLEDI" android:screenOrientation="landscape"></activity>
         
         <service android:label="@string/activitiy_title_main" android:name="LEDIService"></service>
         
@@ -91,6 +92,7 @@
 		</receiver>
         
         <receiver android:name="com.techversat.ledimanager.AlarmReceiver"></receiver>
+        
     </application>
 
 </manifest>

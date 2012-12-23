@@ -22,7 +22,7 @@ fi
 CSS=../css/mystyle.css
 
 if [ $DOWP -eq 1 ]; then
-  RSTCMD=/home/jbkim/git/rst2wp/rst2wp.py
+  RSTCMD=$HOME/git/rst2wp/rst2wp.py
   echo $RSTCMD $RSTFILE
   $RSTCMD $RSTFILE -s $CSS $*
 else
