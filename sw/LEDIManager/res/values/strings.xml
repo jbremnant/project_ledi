@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<string name="defaultText">0</string>
+	<string name="labelRed">Red</string>
+    <string name="labelGreen">Green</string>
+    <string name="menuClear">Clear</string>
+    
     <string name="app_name">LEDIManager</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>

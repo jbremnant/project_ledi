@@ -26,6 +26,7 @@ import com.techversat.ledimanager.Utils;
 import com.techversat.ledimanager.DeviceSelection;
 // import com.techversat.ledimanager.LEDIService.Preferences;
 import com.techversat.ledimanager.LEDIService.ConnectionState;
+import com.techversat.lediview.VirtualLEDIActivity;
 
 
 public class LEDIActivity extends Activity {
@@ -51,7 +52,11 @@ public class LEDIActivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.textView1);
 		tv.setText("running LEDI Service");
 		startService();
-
+	}
+	
+	public void startVirtualLEDIActivity(View view) {
+		Intent intent = new Intent(this, VirtualLEDIActivity.class);
+	    startActivity(intent);
 	}
 	
 	public void stopLEDIService(View view) {

@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.techversat.ledimanager.LEDIService.Preferences;
+import com.techversat.lediview.DotMatrix;
 // import org.metawatch.manager.NotificationBuilder.FontSize;
 
 import android.content.Context;
@@ -152,6 +153,27 @@ public class Protocol {
 			sendQueue.add(bytes);
 			processSendQueue();
 		} catch (Exception x) {
+		}
+	}
+	
+	public static void sendPoint(Context context, int x, int y, boolean onoff)
+	{
+		try {
+			byte[] bytes = new byte[2+3+3+1];
+			bytes[0] = 'p';
+			bytes[1] = ' ';
+			bytes[2] = (byte) Character.forDigit((int)x/10, 10);
+			bytes[3] = (byte) Character.forDigit((int)x%10, 10);
+			bytes[4] = ' ';
+			bytes[5] = (byte) Character.forDigit((int)y/10, 10);
+			bytes[6] = (byte) Character.forDigit((int)y%10, 10);
+			bytes[7] = ' ';
+			bytes[8] = (onoff) ? (byte)'1' : (byte)'0';
+			
+			sendQueue.add(bytes);
+			processSendQueue();
+		} catch (Exception x1) {
+			
 		}
 	}
 	
