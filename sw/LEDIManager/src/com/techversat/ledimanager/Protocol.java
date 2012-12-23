@@ -155,6 +155,24 @@ public class Protocol {
 		}
 	}
 	
+	public static void sendPoint(Context context, int x, int y, boolean onoff)
+	{
+		try {
+			byte[] bytes = new byte[2+3+3+1];
+			bytes[0] = 'p';
+			bytes[1] = ' ';
+			bytes[2] = (byte) Character.forDigit((int)x/10, 10);
+			bytes[3] = (byte) Character.forDigit((int)x%10, 10);
+			bytes[4] = ' ';
+			bytes[5] = (byte) Character.forDigit((int)y/10, 10);
+			bytes[6] = (byte) Character.forDigit((int)y%10, 10);
+			bytes[7] = ' ';
+			bytes[8] = (onoff) ? (byte)'1' : (byte)'0';
+		} catch (Exception x1) {
+			
+		}
+	}
+	
 	public static void sendRtcNow(Context context) {
 		try {
 			boolean isMMDD = true;
