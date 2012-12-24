@@ -145,7 +145,7 @@ with correct values. Now, let's go through each critical piece.
 
 #. **LED** (`light-emitting diode <http://en.wikipedia.org/wiki/LED>`_)
 
-   |pt_ledRed| One of the most common parts you can find in electronic kits or even at your
+   |pt_led| One of the most common parts you can find in electronic kits or even at your
    local RadioShack, this part also has two legs - one short, one long. The short leg is the
    (-) terminal. Make sure the shorter leg connects to GROUND.
 
@@ -388,223 +388,272 @@ If you opt to use our customed made acrylic mount, here's the detail instruction
 
 
 .. |tut_overview1| image:: /nas/docs/techversat/web/product_img/tut_overview1.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/tut_overview1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_overview1.jpg
 .. |tut_pwr1| image:: /nas/docs/techversat/web/product_img/tut_pwr1.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/tut_pwr1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_pwr1.jpg
 .. |tut_pwr2| image:: /nas/docs/techversat/web/product_img/tut_pwr2.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/tut_pwr2.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_pwr2.jpg
 .. |tut_bt1| image:: /nas/docs/techversat/web/product_img/tut_bt1.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/tut_bt1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_bt1.jpg
 .. |tut_bt2| image:: /nas/docs/techversat/web/product_img/tut_bt2.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/tut_bt2.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_bt2.jpg
 .. |tut_zener1| image:: /nas/docs/techversat/web/product_img/tut_zener1.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/tut_zener11.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_zener1.jpg
 .. |tut_conn1| image:: /nas/docs/techversat/web/product_img/tut_conn1.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/tut_conn1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_conn1.jpg
 
 .. |completed1| image:: /nas/docs/techversat/web/product_img/completed1.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/completed11.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/completed1.jpg
 .. |completed2| image:: /nas/docs/techversat/web/product_img/completed_crop.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/completed_crop.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/completed_crop.jpg
 
 .. |pcb1| image:: http://techversat.com/wp-content/uploads/2012/09/tut_pcb_close.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/tut_pcb_close.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/tut_pcb_close.jpg
 .. |parts1| image:: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_SmallComponents.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_SmallComponents.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_SmallComponents.jpg
 .. |rescode| image:: http://techversat.com/wp-content/uploads/2012/09/resistor_code1.gif
-   :uploaded: http://techversat.com/wp-content/uploads/resistor_code1.gif
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/resistor_code1.gif
 
-.. |assembly1| image:: /nas/docs/techversat/web/product_img/P1090133.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/P1090133.jpg
-.. |assembly2| image:: /nas/docs/techversat/web/product_img/P1090137.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/P1090137.jpg
+.. |assembly1| image:: /nas/docs/techversat/web/product_img/ledi_assembly1.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_assembly1.jpg
+.. |assembly2| image:: /nas/docs/techversat/web/product_img/ledi_assembly2.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_assembly2.jpg
 .. |assembly-indexed| image:: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_All-indexed.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/2012/09/parts_ledi_All-indexed.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_All-indexed.jpg
 
 .. |mcusection1| image:: /nas/docs/techversat/web/product_img/mcusection1.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/mcusection1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/mcusection1.jpg
 
 .. |soldering_iron| image:: http://www.mouser.com/images/cooperind/images/wtcpt_300.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/wtcpt_300.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/wtcpt_300.jpg
+   :width: 200
 .. |solder| image:: http://www.adafruit.com/images/medium/ID734_MED.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/ID734_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ID734_MED.jpg
+   :width: 200
 .. |flux_pen| image:: https://dlnmh9ip6v2uc.cloudfront.net/images/products/8/9/6/7/08967-03-L_i_ma.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/08967-03-L_i_ma.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/08967-03-L_i_ma.jpg
+   :width: 200
 .. |multimeter| image:: https://dlnmh9ip6v2uc.cloudfront.net/images/products/9/1/4/1/09141-01B-Working_i_ma.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/09141-01B-Working_i_ma.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/09141-01B-Working_i_ma.jpg
+   :width: 200
 .. |wirecutter| image:: http://www.adafruit.com/images/medium/152_MED.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/152_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/152_MED.jpg
+   :width: 200
 .. |solderwick| image:: http://www.adafruit.com/images/medium/wick_MED.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/wick_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/wick_MED.jpg
+   :width: 200
 .. |soldersucker| image:: http://www.adafruit.com/images/medium/soldersucker_MED.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/soldersucker_MED.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/soldersucker_MED.jpg
+   :width: 200
  
 .. parts list
 .. |pt_mcu| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_MCU.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_MCU-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_MCU.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_MCU-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_MCU.jpg
+   :width: 1000
    :scale: 10
 .. |pt_soc| image:: http://techversat.com/wp-content/uploads/parts_ledi_DIPSocket.jpg
-   :uploaded-scale5: http://techversat.com/wp-content/uploads/parts_ledi_DIPSocket-scale5.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_DIPSocket1.jpg
-   :scale: 5
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_DIPSocket-scale5.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_DIPSocket.jpg
+   :width: 1000
+   :scale: 10
 .. |pt_pcb| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_PCB-v1.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_PCB-v1-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_PCB-v1.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_PCB-v1-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_PCB-v1.jpg
+   :width: 1000
    :scale: 10
 .. |pt_bt| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_BTModule.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_BTModule-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_BTModule.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_BTModule-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_BTModule.jpg
+   :width: 1000
    :scale: 10
 .. |pt_ldo| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_VRegulator.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_VRegulator-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_VRegulator.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_VRegulator-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_VRegulator.jpg
+   :width: 1000
    :scale: 10
 .. |pt_ptc| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_PTC.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_PTC-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_PTC.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_PTC-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_PTC.jpg
+   :width: 1000
    :scale: 10
 .. |pt_crystal| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Crystal.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Crystal-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Crystal.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Crystal-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Crystal.jpg
+   :width: 1000
    :scale: 10
 .. |pt_barrel| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_BarrelJack.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_BarrelJack-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_BarrelJack.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_BarrelJack-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_BarrelJack1.jpg
+   :width: 1000
    :scale: 10
 .. |pt_switch| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_SlideSwitch.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_SlideSwitch-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_SlideSwitch.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_SlideSwitch-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_SlideSwitch.jpg
+   :width: 1000
    :scale: 10
 .. |pt_button| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_ButtonSwitch.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_ButtonSwitch-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_ButtonSwitch.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_ButtonSwitch-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_ButtonSwitch.jpg
+   :width: 1000
    :scale: 10
 .. |pt_cap100| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-100uF.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF-scale101.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF1.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-100uF-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-100uF.jpg
+   :width: 1000
    :scale: 10
 .. |pt_cap10| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-10uF.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-10uF-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-10uF.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-10uF-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-10uF.jpg
+   :width: 1000
    :scale: 10
 .. |pt_cap01| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-0.1uF.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-0.1uF-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-0.1uF.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-0.1uF-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-0.1uF.jpg
+   :width: 1000
    :scale: 10
 .. |pt_zener| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Zener-3.3V.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Zener-3.3V-scale101.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Zener-3.3V1.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Zener-3.3V-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Zener-3.3V.jpg
+   :width: 1000
    :scale: 10
 .. |pt_1N4001| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_1N4001.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_1N4001-scale101.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_1N40011.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_1N4001-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_1N4001.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res16k| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-16KOhm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-16KOhm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-16KOhm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-16KOhm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-16KOhm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res10k| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-10KOhm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-10KOhm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-10KOhm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-10KOhm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-10KOhm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res390| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-390Ohm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-390Ohm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-390Ohm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-390Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-390Ohm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res330| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-330Ohm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-330Ohm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-330Ohm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-330Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-330Ohm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res300| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-300Ohm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-300Ohm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-300Ohm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-300Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-300Ohm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res240| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-240Ohm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-240Ohm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-240Ohm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-240Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-240Ohm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_res15| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-15Ohm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-15Ohm-scale101.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-15Ohm1.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-15Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-15Ohm.jpg
+   :width: 1000
    :scale: 10
 .. |pt_ledAmber| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LED-Yellow.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_LED-Yellow-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_LED-Yellow.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LED-Yellow-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LED-Yellow.jpg
+   :width: 1000
    :scale: 10
 .. |pt_ledRed| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LED-Red.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_LED-Red-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_LED-Red.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LED-Red-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LED-Red.jpg
+   :width: 1000
    :scale: 10
 .. |pt_buzz| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Buzz.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Buzz-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Buzz.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Buzz-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Buzz.jpg
+   :width: 1000
    :scale: 10
 .. |pt_adaptor| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_WallAdaptor-AC-9VDC.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_WallAdaptor-AC-9VDC-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_WallAdaptor-AC-9VDC.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_WallAdaptor-AC-9VDC-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_WallAdaptor-AC-9VDC.jpg
+   :width: 1000
    :scale: 10
 .. |pt_header1| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_SingleHeader.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_SingleHeader-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_SingleHeader.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_SingleHeader-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_SingleHeader.jpg
+   :width: 1000
    :scale: 10
 .. |pt_header2| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_DualHeader.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_DualHeader-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_DualHeader.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_DualHeader-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_DualHeader.jpg
+   :width: 1000
    :scale: 10
 .. |pt_ledmtx| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LEDMatrix-32x8.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_LEDMatrix-32x8-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_LEDMatrix-32x8.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LEDMatrix-32x8-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LEDMatrix-32x8.jpg
+   :width: 1000
    :scale: 10
 .. |pt_conn| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Connector-LEDMatrix-PCB.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Connector-LEDMatrix-PCB-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Connector-LEDMatrix-PCB.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Connector-LEDMatrix-PCB-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Connector-LEDMatrix-PCB.jpg
+   :width: 1000
    :scale: 10
 .. |pt_spacer1| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Spacer-1-4.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Spacer-1-4-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Spacer-1-4.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Spacer-1-4-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Spacer-1-4.jpg
+   :width: 1000
    :scale: 10
 .. |pt_spacer2| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Spacer-1-8.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Spacer-1-8-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Spacer-1-8.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Spacer-1-8-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Spacer-1-8.jpg
+   :width: 1000
    :scale: 10
 .. |pt_spacer3| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Spacer-3-4.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Spacer-3-4-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Spacer-3-4.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Spacer-3-4-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Spacer-3-4.jpg
+   :width: 1000
    :scale: 10
 .. |pt_screw1| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Screw-1.5.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Screw-1.5-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Screw-1.5.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Screw-1.5-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Screw-1.5.jpg
+   :width: 1000
    :scale: 10
 .. |pt_screw2| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Screw-5-8.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Screw-5-8-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Screw-5-8.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Screw-5-8-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Screw-5-8.jpg
+   :width: 1000
    :scale: 10
 .. |pt_nuts| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Nut-4-40.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Nut-4-40-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Nut-4-40.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Nut-4-40-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Nut-4-40.jpg
+   :width: 1000
    :scale: 10
 .. |pt_front| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_FrontCover.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_FrontCover-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_FrontCover.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_FrontCover-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_FrontCover.jpg
+   :width: 1000
    :scale: 10
 .. |pt_Aadaptor| image:: /nas/docs/techversat/web/product_img/edited/parts_lediAcrylic_Adaptor.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Adaptor-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_lediAcrylic_Adaptor.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Adaptor-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_lediAcrylic_Adaptor.jpg
+   :width: 1000
    :scale: 10
 .. |pt_cap1| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Capacitor-100uF.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Capacitor-100uF.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-100uF-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Capacitor-100uF.jpg
    :scale: 10
 .. |pt_diode| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_1N4001.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_1N4001-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_1N4001.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_1N4001-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_1N4001.jpg
    :scale: 10
 .. |pt_zdiode| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Zener-3.3V.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Zener-3.3V-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Zener-3.3V.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Zener-3.3V-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Zener-3.3V.jpg
+   :scale: 10
+.. |pt_led| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_LED-Red.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LED-Red-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_LED-Red.jpg
    :scale: 10
 .. |pt_r15| image:: /nas/docs/techversat/web/product_img/edited/parts_ledi_Resistor-15Ohm.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-15Ohm-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/parts_ledi_Resistor-15Ohm.jpg
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-15Ohm-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/parts_ledi_Resistor-15Ohm.jpg
    :scale: 10

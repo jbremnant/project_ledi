@@ -11,7 +11,7 @@ LEDI, short for **LED I** nterface, is your own personal display device that you
 build, control, and modify. It can receive messages from bluetooth devices or
 from host PC and display it to the LED matrix board.
 
-|ledi2_top|
+|ledi1|
 
 LEDI was designed to be simple, fun to build, and customizable by DIY-ers and
 non-DIYers alike. We wanted the kit to not only be useful, but a good introduction
@@ -41,7 +41,7 @@ There's lots of features built into LEDI:
 
 We are excited to see how the community will utilize this kit.
 
-|ledi2_back|
+|ledi1_back|
 
 
 Technical Features
@@ -80,7 +80,7 @@ So the clock went on to becoming a `bluetooth enabled display <http://jbremnant.
 I would send letters to the clock from my Android phone, and attempt to 
 grab a toddler's attention on reading the scrolling letters. Good luck to that, right?
 
-|ledi1|
+|ledi2|
 
 And then my wife thought it would be great to have this on my desk at work. 
 Why? So that she can grab my attention by sending messages to it remotely. Yikes! 
@@ -104,16 +104,12 @@ LEDI was born out of our desire to learn and have fun at the same time.
 As such, we hope that you find both educational and recreational value in LEDI!
 
 
-.. |ledi1| image:: /nas/docs/techversat/web/product_img/DSC_0085.JPG
-   :uploaded-scale20: http://techversat.com/wp-content/uploads/DSC_0085-scale20.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/DSC_0085.jpg
-   :scale: 20
-.. |ledi2| image:: /nas/docs/techversat/web/product_img/P1090129.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/P10901291.jpg
-.. |ledi2_top| image:: /nas/docs/techversat/web/product_img/P1090120.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/P1090120.jpg
-.. |ledi2_back| image:: /nas/docs/techversat/web/product_img/P1090121.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/P1090121.jpg
+.. |ledi1| image:: /nas/docs/techversat/web/product_img/ledi_general3.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_general3.jpg
+.. |ledi2| image:: /nas/docs/techversat/web/product_img/ledi_generalColor-800x450.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_generalColor-800x450.jpg
+.. |ledi1_back| image:: /nas/docs/techversat/web/product_img/ledi_back1.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_back1.jpg
 
 .. LEESA put image of something here
 

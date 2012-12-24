@@ -42,18 +42,18 @@ This was our prototype build using 3D printer.
 
 
 .. |gallery1| image:: /nas/docs/techversat/web/product_img/gallery1.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery1.jpg
 .. |gallery2| image:: /nas/docs/techversat/web/product_img/gallery2.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery2.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery2.jpg
 .. |gallery3| image:: /nas/docs/techversat/web/product_img/gallery3.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery3.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery3.jpg
 .. |gallery4| image:: /nas/docs/techversat/web/product_img/gallery4.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery4.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery4.jpg
 .. |gallery5| image:: /nas/docs/techversat/web/product_img/gallery5.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery5.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery5.jpg
 .. |gallery6| image:: /nas/docs/techversat/web/product_img/gallery6.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery6.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery6.jpg
 .. |gallery7| image:: /nas/docs/techversat/web/product_img/gallery7.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery7.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery7.jpg
 .. |gallery8| image:: /nas/docs/techversat/web/product_img/gallery8.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/gallery8.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/gallery8.jpg
