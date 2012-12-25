@@ -45,13 +45,13 @@ public class DotMatrix {
     	if(x > (width)) {
     		// x = width+1;
     	}
-    	return (int) ((x) / ((width-offset)/xsize)); 
+    	return (int) ((x-offset) / ((width-offset)/xsize)); 
     }
     public int getYPos(float y) {
     	if(y > (height)) {
     		// y = height+1;
     	}
-    	return (int) ((y) / ((height-offset)/ysize)); 
+    	return (int) ((y-offset) / ((height-offset)/ysize)); 
     }
    
     /** uses the dimensions to create evenly spaced dots to be drawn on canvas **/
@@ -110,7 +110,7 @@ public class DotMatrix {
 
     
     public void findDot(float x, float y, int color) {
-    	if((width-offset) < x || (height-offset) < y) {
+    	if((width) < x || (height) < y) {
     		return;
     	}
     	int xpos = getXPos(x);
@@ -118,7 +118,7 @@ public class DotMatrix {
     	
     	// the dots are organized column wise.
     	int pos = (ysize * xpos) + ypos;
-    	if(dots.size() <= pos)
+    	if(dots.size()-1 < pos)
     	{
     		// Log.i(LEDIActivity.TAG, "Dots pos outside of size");
     		return;

@@ -159,16 +159,13 @@ public class Protocol {
 	public static void sendPoint(Context context, int x, int y, boolean onoff)
 	{
 		try {
-			byte[] bytes = new byte[2+3+3+1];
+			byte[] bytes = new byte[6]; // 6 bytes to display a dot
 			bytes[0] = 'p';
-			bytes[1] = ' ';
-			bytes[2] = (byte) Character.forDigit((int)x/10, 10);
-			bytes[3] = (byte) Character.forDigit((int)x%10, 10);
-			bytes[4] = ' ';
-			bytes[5] = (byte) Character.forDigit((int)y/10, 10);
-			bytes[6] = (byte) Character.forDigit((int)y%10, 10);
-			bytes[7] = ' ';
-			bytes[8] = (onoff) ? (byte)'1' : (byte)'0';
+			bytes[1] = (byte) Character.forDigit((int)x/10, 10);
+			bytes[2] = (byte) Character.forDigit((int)x%10, 10);
+			bytes[3] = (byte) Character.forDigit((int)y/10, 10);
+			bytes[4] = (byte) Character.forDigit((int)y%10, 10);
+			bytes[5] = (onoff) ? (byte)'1' : (byte)'0';
 			
 			sendQueue.add(bytes);
 			processSendQueue();
