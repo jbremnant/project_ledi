@@ -51,11 +51,11 @@ are just starting out, it is advisable to go through at least sections 0x01 - 0x
 
 
 
-.. |general1| image:: /nas/docs/techversat/web/product_img/DSC_0108.JPG
-   :uploaded-scale10: http://techversat.com/wp-content/uploads/DSC_0108-scale10.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/DSC_0108.jpg
+.. |general1| image:: /nas/docs/techversat/web/product_img/ledi_general1.JPG
+   :uploaded-scale10: http://techversat.com/wp-content/uploads/ledi/ledi_general1-scale10.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_general1.jpg
    :scale: 10
-.. |introledi2| image:: /nas/docs/techversat/web/product_img/P1090129.JPG
-   :uploaded: http://techversat.com/wp-content/uploads/P10901291.jpg
+.. |introledi2| image:: /nas/docs/techversat/web/product_img/ledi_general2.JPG
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_general2.jpg
 .. |introledi1| image:: /nas/docs/techversat/web/product_img/ledi_narrow.jpg
-   :uploaded: http://techversat.com/wp-content/uploads/ledi_narrow1.jpg
+   :uploaded: http://techversat.com/wp-content/uploads/ledi/ledi_narrow.jpg
