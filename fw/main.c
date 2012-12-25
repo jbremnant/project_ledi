@@ -409,6 +409,7 @@ void mode_draw()
   uint8_t x_mask = ht1632_xmax() - 1;
   uint8_t y_mask = ht1632_ymax() - 1;
   char *ptr;
+  char save;
 
   ht1632_clear();
 
@@ -438,9 +439,25 @@ void mode_draw()
     }
     if(ptr[0]=='p')
     {
-      // format: p 01 10 1
-      if(n > 8) 
+      // format: p01101 
+      //         pxxyy1
+      if(n > 5) 
       {
+        ptr++; // skip p
+        save = *(ptr+2);  
+        *(ptr+2) = '\0';
+        x = atoi(ptr);
+
+        ptr+=2;
+        *ptr = save; 
+        save = *(ptr+2);
+        *(ptr+2) = '\0';
+        y = atoi(ptr);
+
+        ht1632_plotram(x, y, (save=='1')?1:0, 1);
+        // format was: p 01 10 1
+        // waste of 3 bytes over wireless
+        /*
         ptr+=2; *(ptr+2) = '\0';
         x = atoi(ptr);
         ptr+=3; *(ptr+2) = '\0';
@@ -448,6 +465,7 @@ void mode_draw()
         ptr+=3; *(ptr+1) = '\0';
         val = atoi(ptr);
         ht1632_plotram(x, y, val, 1);
+        */
       }
       continue;
     }
