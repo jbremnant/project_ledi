@@ -58,16 +58,21 @@ public class DotView extends View {
 
         Paint paint = new Paint();
         paint.setStyle(Style.STROKE);
-        paint.setShadowLayer(5, 5, 5, Color.GRAY);
-        paint.setColor(hasFocus() ? Color.BLUE : Color.GRAY);
+        paint.setShadowLayer(5, 5, 5, Color.DKGRAY);
+        paint.setColor(hasFocus() ? Color.BLACK : Color.GRAY);
+        // RectF rect = new RectF(10, 10, getWidth()-10, getHeight()-10);
         RectF rect = new RectF(10, 10, getWidth()-10, getHeight()-10);
         // canvas.drawRect(0, 0, getWidth() - 1, getHeight() -1, paint);
         canvas.drawRoundRect(rect, 15, 15, paint);
         
         if (null == dots) { return; }
-
+        
+        // if the dimension changed, it will reinitialize the dot objects
+        dots.setDimension(getWidth()-10, getHeight()-10);
+        
         Paint dotpaint = new Paint();
         dotpaint.setStyle(Style.FILL);
+
        
         for (Dot dot : dots.getDots()) {
             dotpaint.setColor(dot.getColor());

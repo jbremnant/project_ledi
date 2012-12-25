@@ -31,15 +31,18 @@ import com.techversat.lediview.DotView;
 
 public class VirtualLEDIActivity extends Activity {
     /** Dot diameter */
-    public static final int DOT_DIAMETER = 6;
+    public static final int DOT_DIAMETER = 8;
     private Context context;
 
+    
     /** Listen for taps. */
     private static final class TrackingTouchListener
         implements View.OnTouchListener
     {
         private final DotMatrix mDots;
         private List<Integer> tracks = new ArrayList<Integer>();
+        private int pxpos = -1;
+        private int pypos = -1;
 
         TrackingTouchListener(DotMatrix dots) { mDots = dots; }
 
@@ -47,8 +50,8 @@ public class VirtualLEDIActivity extends Activity {
             int n;
             int idx;
             int action = evt.getAction();
-            int pxpos=0;
-            int pypos=0;
+            pxpos = -1;
+            pypos = -1;
             
             switch (action & MotionEvent.ACTION_MASK) {
                 case MotionEvent.ACTION_DOWN:
@@ -74,8 +77,7 @@ public class VirtualLEDIActivity extends Activity {
                         	float y = evt.getHistoricalY(idx, j);
                         	int xpos = mDots.getXPos(x);
                         	int ypos = mDots.getYPos(y);
-                        	if(xpos!=pxpos && ypos!=pypos) {
-                        	
+                        	if(xpos!=pxpos && ypos!=pypos) {	
                         		addDot(
                         			mDots,
                         			x,
@@ -100,7 +102,9 @@ public class VirtualLEDIActivity extends Activity {
             	float y = evt.getHistoricalY(idx, i);
             	int xpos = mDots.getXPos(x);
             	int ypos = mDots.getYPos(y);
-            	if(xpos!=pxpos && ypos!=pypos) {        	
+            	
+            	if(xpos!=pxpos && ypos!=pypos) {        
+            		Log.i("DotM", "x="+x+" y="+y+" xpos="+xpos+" ypos="+ypos);
             		addDot(
             			mDots,
             			x,
@@ -119,8 +123,8 @@ public class VirtualLEDIActivity extends Activity {
             dots.findDot(
                 x,
                 y,
-                Color.CYAN,
-                (int) ((p + 0.5) * (s + 0.5) * DOT_DIAMETER));
+                Color.CYAN);
+                // (int) ((p + 0.5) * (s + 0.5) * DOT_DIAMETER));
         }
     }
 
@@ -175,13 +179,13 @@ public class VirtualLEDIActivity extends Activity {
 
         // find the dots view
         dotView = (DotView) findViewById(R.id.dots);
+        /*
         int width = dotView.getRootView().getMeasuredWidth();
         int height = dotView.getRootView().getMeasuredHeight();
         int w1 = dotView.getWidth();
         int h1 = dotView.getHeight();
-        Log.i("vLEDI", "w:"+width + " h:"+height + " w1:"+w1 + " h1:"+h1);
-       
-        dotModel = new DotMatrix(800, 220, 32, 8, 6);
+         */
+        dotModel = new DotMatrix(32, 8, DOT_DIAMETER);
         dotView.setDots(dotModel);
 
         dotView.setOnCreateContextMenuListener(this);
@@ -231,12 +235,16 @@ public class VirtualLEDIActivity extends Activity {
         ((Button) findViewById(R.id.button1)).setOnClickListener(
             new Button.OnClickListener() {
                 @Override public void onClick(View v) {
-                    makeDot(dotModel, dotView, Color.RED);
+                	Protocol.sendText(context, "w");
+                	dotModel.clearDots();
+                    // makeDot(dotModel, dotView, Color.RED);
                 } });
         ((Button) findViewById(R.id.button2)).setOnClickListener(
             new Button.OnClickListener() {
                 @Override public void onClick(View v) {
-                    makeDot(dotModel, dotView, Color.GREEN);
+                	finish();
+                    // go back to the main activity
+                	// makeDot(dotModel, dotView, Color.GREEN);
                 } });
 
         final EditText tb1 = (EditText) findViewById(R.id.text1);
@@ -311,7 +319,6 @@ public class VirtualLEDIActivity extends Activity {
         dots.findDot(
             DOT_DIAMETER + (rand.nextFloat() * (view.getWidth() - pad)),
             DOT_DIAMETER + (rand.nextFloat() * (view.getHeight() - pad)),
-            color,
-            DOT_DIAMETER);
+            color);
     }
 }

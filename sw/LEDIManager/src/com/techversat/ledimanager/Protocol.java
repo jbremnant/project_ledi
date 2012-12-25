@@ -169,12 +169,9 @@ public class Protocol {
 			bytes[6] = (byte) Character.forDigit((int)y%10, 10);
 			bytes[7] = ' ';
 			bytes[8] = (onoff) ? (byte)'1' : (byte)'0';
-<<<<<<< HEAD
-=======
 			
 			sendQueue.add(bytes);
 			processSendQueue();
->>>>>>> 08d591b8e71d36124faac1e1916fe90cdb75fe10
 		} catch (Exception x1) {
 			
 		}
