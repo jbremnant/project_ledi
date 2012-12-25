@@ -43,7 +43,7 @@ Simply run::
 
 For Mac OS X
 ~~~~~~~~~~~~
-There is an excellent all-in-one package called CrossPack on OS X.
+There is an excellent all-in-one package called CrossPack-AVR on OS X.
 
 http://www.obdev.at/products/crosspack/index.html
 
