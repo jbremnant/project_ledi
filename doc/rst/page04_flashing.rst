@@ -10,6 +10,11 @@ Updating LEDI with the latest firmware is easy. You can use various devices
 to do this. Disclaimer: We are not affiliated with any of the companies that
 make any of the programmers mentioned in this tutorial. 
 
+You will need 3 things in order to upgrade the firmware on your LEDI.
+
+* latest firmware file with extension .hex
+* 
+
 
 Choosing the Programmer
 -----------------------
@@ -22,4 +27,23 @@ of the programmers we've personally tested and verified.
   http://fun4diy.com/AVRISP_mkII.htm
 * avrisp mk II (official)
 
+
+Download the Flashing Software
+------------------------------
+
+A command line program called **avrdude** can flash most Atmel
+microcontrollers via one of the programmer device listed above.
+
+For Linux
+~~~~~~~~~
+Simply run::
+
+  sudo apt-get install avrdude
+
+
+For Mac OS X
+~~~~~~~~~~~~
+There is an excellent all-in-one package called CrossPack on OS X.
+
+http://www.obdev.at/products/crosspack/index.html
 
