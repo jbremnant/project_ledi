@@ -81,7 +81,8 @@ Header Dual row          1          2 x 15 header for connecting ribbon cable   
 
 Resistors may come in different color and number of stripes depending on manufacturer,
 the strip color specified above only indicates the resistor value portion.
-Please refer to the Resistor_ section for detail.
+Refer to the Resistor_ section to understand how to read the stripes value.
+
 
 **If you are purchasing the acrylic mount**, the package should also include:
 
@@ -106,31 +107,28 @@ Acrylic adaptor plate   2          Transparent acrylic adaptor                  
 Components Explaination
 -----------------------
 
-Before assembly, you will need to take couple of things into account.
-Understanding this section will ensure successful completion of your build.
+Before assembly, let's make sure we have sufficient understanding about the components
+used in this project, understanding this section will ensure successful completion of your build.
 
-There are few parts where the orientation of their placement is absolutely critical 
-to correct operation of LEDI. Also, you will need to make sure you pick the resistors
-with correct values. Now, let's go through each critical piece.
 
 #. **Electrolytic Capacitor** (`wiki capacitor <http://en.wikipedia.org/wiki/Electrolytic_capacitor>`_)
 
    |pt_cap1| They look like aluminum cylinders wrapped in black plastic with one short and
-   one long leg. **The short leg is the negative (-) terminal**! This negative terminal
+   one long leg. Please note that **ORIENTATION MATTERS** while you are placing the component on the PCB. 
+   **The short leg is the negative (-) terminal**. This negative terminal
    is also indicated on the plastic covering. The plastic cover will have a strip going
-   down on the negative terminal side. The negative terminal connects to GROUND.
+   down on the negative terminal side. In our design, negative terminal connects to GROUND.
 
 .. _Rectifier:
 
 #. **Reverse Voltage Protection Diode** (`wiki diode <http://en.wikipedia.org/wiki/Diode>`_) (`wiki rectifier <http://en.wikipedia.org/wiki/Rectifier>`_)
 
    |pt_diode| This part looks like a small black cynlinder. It allows current to flow in one
-   direction and not in the other and therefore able to convert AC current to DC.
-   The diode 1N4001 that we are using in this project is a popular 1.0A general purpose 
-   silion rectifier diodes. 
-   A small white strip on one end indicates the blocking side. You will need to look at the 
-   PCB carefully and make sure the side with the strip is properly aligned with the indicated 
-   strip on the PCB silkscreen (white labels on PCB).
+   direction and not in the other. In this project, we are using the popular 1.0A
+   general purpose silion rectifier diode - 1N4001, which serves as converter from AC to DC
+   current. **ORIENTATION MATTERS** for all diodes. A small white strip on one end indicates the blocking side. 
+   You will need to look at the PCB carefully and make sure the side with the strip is properly 
+   aligned with the indicated strip on the PCB silkscreen (white labels on PCB).
 
 .. _`Zener Diode 3.3v`:
 
@@ -138,8 +136,9 @@ with correct values. Now, let's go through each critical piece.
 
    |pt_zdiode| This part also looks like a cylinder, but in orange. It is similar to the diode
    described above, but allows current to flow in the reverse direction when the
-   voltage is above a certain value. The black strip on one end indicates the "blocking"
-   side. You will need to carefully match this strip with the PCB silkscreen.
+   voltage is above a certain value. Therefore the **ORIENTATION MATTERS** for this component too.
+   The black strip on one end indicates the "blocking" side. You will need to carefully match 
+   this strip with the PCB silkscreen.
 
 .. _LED:
 
@@ -154,7 +153,7 @@ with correct values. Now, let's go through each critical piece.
 #. **Resistor** (`wiki resistor <http://en.wikipedia.org/wiki/Resistor>`_)
 
    |pt_r15| You will need to be careful about getting the resistor values right.
-   Unlike other components discussed, the orientation does NOT matter. You can stick
+   Unlike other components discussed, the **orientation does NOT matter.** You can stick
    in the resistor in either direction onto the PCB. 
    Refer to the following resistor color code to determine their value:
 
@@ -167,19 +166,19 @@ with correct values. Now, let's go through each critical piece.
     red   yellow  black  orange
       2        4      0      1k   ==  240k
 
-Sometimes, the color bands are hard to distinguish on the resistor.  It's good to have a multimeter
-which can measure the resistance.
+Beside reading the color directly, it is always good to have a multimeter 
+handy to measure the exact resistance. 
 
 `Back to top`_
 
 Tools Required
 ---------------
 
-Assembling LEDI is straight-forward and fun. We will guide you through each
-step. First, you will need to have the following tools ready:
+OK, now that you understanding the major components going into LEDI, let's talk about 
+tools that you would need:
 
 ====================================  ====================
-Tool                                  Looks Like
+Tool                                  The Look
 ====================================  ====================
 1. soldering_ iron                    |soldering_iron|
 2. solder_ (Lead free preferable)     |solder|
@@ -198,25 +197,22 @@ Tool                                  Looks Like
 .. _wick: http://www.adafruit.com/products/149
 .. _sucker: http://www.adafruit.com/products/148
 
-Lastly, some patience.  :-)
 
 The flux, solder wick, and solder sucker are optional. However, they are good
 tools to help ammend mistakes. If you are soldering for the first time, we
 highly recommend getting those as well.
->>>>>>> d5e6279909254ef9c120783a95221d099ad70dae
 
 Here are the steps we will take
 
 #. Organize the parts
 #. Solder
 #. Test the circuit
+#. Install the app
 #. Play with it!
 
-Let's go through the detailed steps below. We suggest you set aside about
-1.5 hours to build the kit. We will tackle one section at a time. Before
-you know it, you will get things rolling very soon.
-
-If you've never soldered before, it might be good to do some prep reading.
+If you've never soldered before, it might be good to do some prep reading or
+even prep practice before you go into touching the components. It's easy to solder but 
+hard to take out sometime.
 There are lots of great videos and tutorials online. Here are few:
 
 * `Sparkfun tutorial <http://www.sparkfun.com/tutorials/106>`_.
@@ -229,7 +225,7 @@ There are lots of great videos and tutorials online. Here are few:
 Soldering the Parts
 -------------------
 
-Through-hole soldering is pretty fun! Make sure you work in a well ventilated room.
+Through-hole soldering is pretty fun and straight forward! Make sure you work in a well ventilated room.
 Now, all you need is some solder and a soldering iron. When we are done with the
 assembly, your LEDI board will look like this:
 
