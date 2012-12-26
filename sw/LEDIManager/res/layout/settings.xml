@@ -127,7 +127,12 @@
 			android:numeric="integer"
 			android:defaultValue="15"
 			/>
-			
+		<CheckBoxPreference
+			android:title="Insecure BT connection"
+			android:key="InsecureBtSocket"
+			android:summary="Bluetooth Compatibility"
+			android:defaultValue="false"
+			/>
 	</PreferenceCategory>	
 	
 </PreferenceScreen>

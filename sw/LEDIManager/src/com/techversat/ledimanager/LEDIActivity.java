@@ -56,7 +56,6 @@ public class LEDIActivity extends Activity {
 		setTitle(getString(R.string.app_name));
 		
 		toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
-
 		toggleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	if(toggleButton.isChecked())
@@ -71,10 +70,9 @@ public class LEDIActivity extends Activity {
 	
     @Override
     protected void onResume() {
-    	super.onResume();
-    	
-        textView = (TextView) findViewById(R.id.textView1);
-        /*		
+    	super.onResume();	      
+        /*	
+        textView = (TextView) findViewById(R.id.textView1);	
   		toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
 
 		toggleButton.setOnClickListener(new View.OnClickListener() {
@@ -100,16 +98,24 @@ public class LEDIActivity extends Activity {
     	
     	switch (LEDIService.connectionState) {
 	    	case LEDIService.ConnectionState.DISCONNECTED:
-	    		Utils.appendColoredText(textView, res.getString(R.string.connection_disconnected).toUpperCase(), Color.RED);
+	    		Utils.appendColoredText(textView,
+	    				res.getString(R.string.connection_disconnected).toUpperCase(),
+	    				Color.RED);
 	    		break;
 	    	case LEDIService.ConnectionState.CONNECTING:
-	    		Utils.appendColoredText(textView, res.getString(R.string.connection_connecting).toUpperCase(), Color.YELLOW);
+	    		Utils.appendColoredText(textView,
+	    				res.getString(R.string.connection_connecting).toUpperCase(), 
+	    				Color.GRAY);
 	    		break;
 	    	case LEDIService.ConnectionState.CONNECTED:
-	    		Utils.appendColoredText(textView, res.getString(R.string.connection_connected).toUpperCase(), Color.GREEN);
+	    		Utils.appendColoredText(textView, 
+	    				res.getString(R.string.connection_connected).toUpperCase(), 
+	    				Color.GREEN);
 	    		break;
 	    	case LEDIService.ConnectionState.DISCONNECTING:
-	    		Utils.appendColoredText(textView, res.getString(R.string.connection_disconnecting).toUpperCase(), Color.YELLOW);
+	    		Utils.appendColoredText(textView, 
+	    				res.getString(R.string.connection_disconnecting).toUpperCase(), 
+	    				Color.YELLOW);
 	    		break;
     	}
     	textView.append("\n");
@@ -211,18 +217,14 @@ public class LEDIActivity extends Activity {
 	    }
 	}
     
-	void startService_old() {
-		startService(new Intent(this, LEDIService.class));
-		setButtonState(context);
-	}
-	
-    void stopService_old() {
-    	stopService(new Intent(this, LEDIService.class));
-    	setButtonState(context);
-    }
     
 	void startService() {
 		Context context = getApplicationContext();
+		
+		// we want the service to run even when the client unbinds
+		context.startService(new Intent(this, LEDIService.class));
+		
+		// and then we bind the client to the service
 		if(!LEDIService.isRunning()) {
 			context.bindService(new Intent(LEDIActivity.this, 
 					LEDIService.class), LEDIActivity.mConnection, Context.BIND_AUTO_CREATE);
@@ -233,8 +235,8 @@ public class LEDIActivity extends Activity {
     void stopService() {
 		Context context = getApplicationContext();
         try {
-        	context.stopService(new Intent(this, LEDIService.class));
-            context.unbindService(LEDIActivity.mConnection);            	
+        	context.unbindService(LEDIActivity.mConnection);   
+        	context.stopService(new Intent(this, LEDIService.class));        	
         }
         catch(Throwable e) {
         	// The service wasn't running

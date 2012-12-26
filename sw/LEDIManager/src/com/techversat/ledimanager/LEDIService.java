@@ -117,10 +117,7 @@ public class LEDIService extends Service {
 		static final int DISCONNECT = 4;
 	}
 	
-	@Override
-	public IBinder onBind(Intent intent) {
-		return mMessenger.getBinder();
-	}
+
 
 	public static void loadPreferences(Context context) {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -139,7 +136,7 @@ public class LEDIService extends Service {
 		Preferences.weatherCelsius = sharedPreferences.getBoolean("WeatherCelsius", Preferences.weatherCelsius);
 		Preferences.idleMusicControls = sharedPreferences.getBoolean("IdleMusicControls", Preferences.idleMusicControls);
 		Preferences.idleReplay = sharedPreferences.getBoolean("IdleReplay", Preferences.idleReplay);
-		
+		Preferences.insecureBtSocket = sharedPreferences.getBoolean("InsecureBtSocket", Preferences.insecureBtSocket);
 		try {
 			Preferences.fontSize = Integer.valueOf(sharedPreferences.getString("FontSize", Integer.toString(Preferences.fontSize)));
 			Preferences.packetWait = Integer.valueOf(sharedPreferences.getString("PacketWait", Integer.toString(Preferences.packetWait)));
@@ -201,13 +198,37 @@ public class LEDIService extends Service {
 	public static boolean isRunning() {
 		return instance != null;
 	}
+	
+	/*
+	 * Service life-cycle callback routines
+	 */
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
 		context = this;
 		instance = this;
+		initialize();
+	}
+	
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+	    //handleCommand(intent);
+	    // We want this service to continue running until it is explicitly
+	    // stopped, so return sticky.
+		if (connectionState == ConnectionState.DISCONNECTED)
+			initialize();
+		Toast.makeText(this, "service starting", Toast.LENGTH_SHORT).show();
+	    return START_STICKY;
+	}
+	
+	@Override
+	public IBinder onBind(Intent intent) {
+		Toast.makeText(this, "service binding", Toast.LENGTH_SHORT).show();
+		return mMessenger.getBinder();
+	}
+	
+	private void initialize() {
 		createNotification();
 		
 		connectionState = ConnectionState.CONNECTING;
@@ -222,21 +243,36 @@ public class LEDIService extends Service {
 		audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 		Monitors.start(this, telephonyManager);				
 		
-		start();
-		
+		start();	
 	}
 
 	@Override
+	public boolean onUnbind(Intent intent) {
+		Toast.makeText(this, "client unbinding", Toast.LENGTH_SHORT).show();
+		return false; // if returns true, it will call onRebind()
+	}
+
+	@Override
+	public void onRebind(Intent intent) {	
+	}
+	
+	@Override
 	public void onDestroy() {
-		disconnectExit();
-		super.onDestroy();	
-		instance = null;
+		Toast.makeText(this, "destroying service", Toast.LENGTH_SHORT).show();
+		disconnectExit();			
+		super.onDestroy();
+		serviceThread.quit();
+		instance=null;
+//		if (Preferences.logging) Log.d(MetaWatch.TAG,
+//				"MetaWatchService.onDestroy()");
+//		PreferenceManager.getDefaultSharedPreferences(context).unregisterOnSharedPreferenceChangeListener(prefChangeListener);	
 		Monitors.stop();
 		removeNotification();
+		notifyClients();
+		mClients.clear();
 	}
 	
 	void connect(Context context) {
-		
 		try {
 			
 			Log.d(LEDIActivity.TAG, "Remote device address: " + Preferences.watchMacAddress);
@@ -276,8 +312,8 @@ public class LEDIService extends Service {
 				UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 //				bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
 				if (Preferences.insecureBtSocket && currentapiVersion >= android.os.Build.VERSION_CODES.GINGERBREAD_MR1) {
-//					bluetoothSocket = bluetoothDevice
-//							.createInsecureRfcommSocketToServiceRecord(uuid);
+					bluetoothSocket = bluetoothDevice
+							.createInsecureRfcommSocketToServiceRecord(uuid);
 				} else {
 					bluetoothSocket = bluetoothDevice
 							.createRfcommSocketToServiceRecord(uuid);
