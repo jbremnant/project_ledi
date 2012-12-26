@@ -31,7 +31,7 @@ import com.techversat.lediview.DotView;
 
 public class VirtualLEDIActivity extends Activity {
     /** Dot diameter */
-    public static final int DOT_DIAMETER = 8;
+    public static final int DOT_DIAMETER = 9;
     private Context context;
 
     
@@ -46,7 +46,71 @@ public class VirtualLEDIActivity extends Activity {
 
         TrackingTouchListener(DotMatrix dots) { mDots = dots; }
 
-        @Override public boolean onTouch(View v, MotionEvent evt) {
+        @Override
+        public boolean onTouch(View v, MotionEvent evt) {
+        	int idx;
+        	int action = evt.getAction();   
+        	switch (action & MotionEvent.ACTION_MASK) {
+        	case MotionEvent.ACTION_DOWN:
+        	case MotionEvent.ACTION_POINTER_DOWN:
+        		idx = (action & MotionEvent.ACTION_POINTER_INDEX_MASK)
+        		>> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+        		break;
+        	case MotionEvent.ACTION_POINTER_UP:
+        		idx = (action & MotionEvent.ACTION_POINTER_INDEX_MASK)
+        		>> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+        		break;
+        	case MotionEvent.ACTION_MOVE:
+        		break;
+        	default:
+        		break;
+        		// return false;
+        	}
+        	
+        	final int hsize = evt.getHistorySize();
+        	final int psize = evt.getPointerCount();
+
+        	// process the historical coordinates
+        	for (int h=0; h<hsize; h++) {
+        		// idx = evt.findPointerIndex(i.intValue());
+        		for (int p=0; p<psize; p++) {
+        			float x = evt.getHistoricalX(p, h);
+        			float y = evt.getHistoricalY(p, h);
+        			int xpos = mDots.getXPos(x);
+        			int ypos = mDots.getYPos(y);
+        			if(xpos!=pxpos || ypos!=pypos) {
+            			Log.i("DotMHist", "x="+x+" y="+y+" xpos="+xpos+" ypos="+ypos);
+        				processDot(mDots, x, y,
+        						evt.getHistoricalPressure(p, h),
+        						evt.getHistoricalSize(p, h));
+        				
+        				pxpos=xpos;
+        				pypos=ypos;
+        			}
+        		}
+        	}
+        	
+        	// process the current coordinates
+        	for(int p=0; p<psize; p++) {
+    			float x = evt.getX(p);
+    			float y = evt.getY(p);
+    			int xpos = mDots.getXPos(x);
+    			int ypos = mDots.getYPos(y);
+    			if(xpos!=pxpos || ypos!=pypos) {
+    				Log.i("DotMCurr", "x="+x+" y="+y+" xpos="+xpos+" ypos="+ypos);
+    				processDot(mDots, x, y,
+    						evt.getPressure(p),
+    						evt.getSize(p));
+    				
+    				pxpos=xpos;
+    				pypos=ypos;
+    			}
+        	}	
+        	return true;
+        }
+        
+        
+        public boolean onTouch_old(View v, MotionEvent evt) {
             int n;
             int idx;
             int action = evt.getAction();
@@ -58,18 +122,22 @@ public class VirtualLEDIActivity extends Activity {
                 case MotionEvent.ACTION_POINTER_DOWN:
                     idx = (action & MotionEvent.ACTION_POINTER_INDEX_MASK)
                         >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
+                    // Integer.valueOf returns the instance of Integer object
                     tracks.add(Integer.valueOf(evt.getPointerId(idx)));
                     break;
 
                 case MotionEvent.ACTION_POINTER_UP:
                     idx = (action & MotionEvent.ACTION_POINTER_INDEX_MASK)
                         >> MotionEvent.ACTION_POINTER_INDEX_SHIFT;
-                    tracks.remove(Integer.valueOf(evt.getPointerId(idx)));
+                    // removes all items with the given pointerId
+                    while( tracks.remove(Integer.valueOf(evt.getPointerId(idx))) );
+                    
                     break;
 
                 case MotionEvent.ACTION_MOVE:
                 	// Log.i("vLEDI", "hitting ACTION_MOVE");
                     n = evt.getHistorySize();
+                    
                     for (Integer i: tracks) {
                         idx = evt.findPointerIndex(i.intValue());
                         for (int j = 0; j < n; j++) {
@@ -78,7 +146,7 @@ public class VirtualLEDIActivity extends Activity {
                         	int xpos = mDots.getXPos(x);
                         	int ypos = mDots.getYPos(y);
                         	if(xpos!=pxpos && ypos!=pypos) {	
-                        		addDot(
+                        		processDot(
                         			mDots,
                         			x,
                         			y,
@@ -105,7 +173,7 @@ public class VirtualLEDIActivity extends Activity {
             	
             	if(xpos!=pxpos && ypos!=pypos) {        
             		Log.i("DotM", "x="+x+" y="+y+" xpos="+xpos+" ypos="+ypos);
-            		addDot(
+            		processDot(
             			mDots,
             			x,
             			y,
@@ -119,7 +187,7 @@ public class VirtualLEDIActivity extends Activity {
             return true;
         }
 
-        private void addDot(DotMatrix dots, float x, float y, float p, float s) {
+        private void processDot(DotMatrix dots, float x, float y, float p, float s) {
             dots.findDot(
                 x,
                 y,

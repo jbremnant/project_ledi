@@ -1,11 +1,21 @@
 package com.techversat.ledimanager;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 import android.util.Log;
 
 // import org.techversat.ledimanager.R;
@@ -29,10 +40,13 @@ import com.techversat.ledimanager.LEDIService.ConnectionState;
 import com.techversat.lediview.VirtualLEDIActivity;
 
 
+@SuppressLint("DefaultLocale")
 public class LEDIActivity extends Activity {
 
 	public static final String TAG = "LEDI";
-	Context context;
+	public static TextView textView = null;	
+	public static ToggleButton toggleButton = null;
+	static volatile Context context;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,40 +54,97 @@ public class LEDIActivity extends Activity {
 		context = this;
 		setContentView(R.layout.activity_main);
 		setTitle(getString(R.string.app_name));
+		
+		toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
+
+		toggleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	if(toggleButton.isChecked())
+            		startService();
+            	else
+            		stopService();            	
+            }
+        });
+		
 		Log.i(TAG, "onCreate");
+	}
+	
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	
+        textView = (TextView) findViewById(R.id.textView1);
+        /*		
+  		toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
+
+		toggleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	if(toggleButton.isChecked())
+            		startService();
+            	else
+            		stopService();
+            }
+        });*/
+		displayStatus(this);
+    }
+    
+    static void displayStatus(Context context) {
+    	setButtonState(context);
+    	
+    	if(textView==null)
+    		return;
+    	
+    	Resources res = context.getResources();
+    	textView.setText(res.getString(R.string.app_name));
+    	textView.append("\n\n");
+    	
+    	switch (LEDIService.connectionState) {
+	    	case LEDIService.ConnectionState.DISCONNECTED:
+	    		Utils.appendColoredText(textView, res.getString(R.string.connection_disconnected).toUpperCase(), Color.RED);
+	    		break;
+	    	case LEDIService.ConnectionState.CONNECTING:
+	    		Utils.appendColoredText(textView, res.getString(R.string.connection_connecting).toUpperCase(), Color.YELLOW);
+	    		break;
+	    	case LEDIService.ConnectionState.CONNECTED:
+	    		Utils.appendColoredText(textView, res.getString(R.string.connection_connected).toUpperCase(), Color.GREEN);
+	    		break;
+	    	case LEDIService.ConnectionState.DISCONNECTING:
+	    		Utils.appendColoredText(textView, res.getString(R.string.connection_disconnecting).toUpperCase(), Color.YELLOW);
+	    		break;
+    	}
+    	textView.append("\n");
+    }
+    
+	private static void setButtonState(Context context) {
+		if (toggleButton!=null)
+			toggleButton.setChecked(LEDIService.isRunning());
 	}
 
 	public void startSearchActivity(View view) {
 	    Intent intent = new Intent(this, DeviceSelection.class);
 	    startActivity(intent);
 	}
-	
-	public void startLEDIService(View view) {
-		TextView tv = (TextView) findViewById(R.id.textView1);
-		tv.setText("running LEDI Service");
-		startService();
-	}
-	
+
 	public void startVirtualLEDIActivity(View view) {
+		textView = (TextView) findViewById(R.id.textView1);
+		if(LEDIService.connectionState != ConnectionState.CONNECTED)
+		{
+			textView.setText("Cannot start virtual LEDI.\nPlease establish connection first");
+			return;
+		}
 		Intent intent = new Intent(this, VirtualLEDIActivity.class);
 	    startActivity(intent);
 	}
-	
-	public void stopLEDIService(View view) {
-		stopService();
-		TextView tv = (TextView) findViewById(R.id.textView1);
-		tv.setText("stopped LEDI Service");
-	}
-	
+
 	public void setLEDITime(View view)
 	{
-		TextView tv = (TextView) findViewById(R.id.textView1);
+		textView = (TextView) findViewById(R.id.textView1);
 		if(LEDIService.connectionState != ConnectionState.CONNECTED)
 		{
-			tv.setText("Cannot set time. Please establish connection first");
+			textView.setText("Cannot set time. Please establish connection first");
 			return;
 		}
-		tv.setText("setting Time");
+		textView.setText("setting Time");
 		Protocol.sendRtcNow(this);
 	}
 	
@@ -140,12 +211,36 @@ public class LEDIActivity extends Activity {
 	    }
 	}
     
-	void startService() {
+	void startService_old() {
 		startService(new Intent(this, LEDIService.class));
+		setButtonState(context);
+	}
+	
+    void stopService_old() {
+    	stopService(new Intent(this, LEDIService.class));
+    	setButtonState(context);
+    }
+    
+	void startService() {
+		Context context = getApplicationContext();
+		if(!LEDIService.isRunning()) {
+			context.bindService(new Intent(LEDIActivity.this, 
+					LEDIService.class), LEDIActivity.mConnection, Context.BIND_AUTO_CREATE);
+		}
+        setButtonState(context);
 	}
 	
     void stopService() {
-    	stopService(new Intent(this, LEDIService.class));
+		Context context = getApplicationContext();
+        try {
+        	context.stopService(new Intent(this, LEDIService.class));
+            context.unbindService(LEDIActivity.mConnection);            	
+        }
+        catch(Throwable e) {
+        	// The service wasn't running
+        	// if (Preferences.logging) Log.d(MetaWatch.TAG, e.getMessage());          	
+        }
+        setButtonState(context);
     }
     
     void exit() {
@@ -169,4 +264,62 @@ public class LEDIActivity extends Activity {
 			}
 		}).show();        
     }
+    
+    
+    /**
+     * Handler of incoming messages from service.
+     */
+    static class IncomingHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+        	Log.i(TAG,"received msg from LEDIService");
+            switch (msg.what) {
+                case LEDIService.Msg.UPDATE_STATUS:
+                    LEDIActivity.displayStatus(context);
+                    break;
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+    }
+    
+    /**
+     * Target we publish for clients to send messages to IncomingHandler.
+     */
+    public static Messenger mService = null;  
+    final static IncomingHandler mIncomingHandler = new IncomingHandler();
+    final static Messenger mMessenger = new Messenger(mIncomingHandler);
+
+    /**
+     * Class for interacting with the main interface of the service.
+     */
+    public static ServiceConnection mConnection = new ServiceConnection() {
+    	   	
+        public void onServiceConnected(ComponentName className,
+                IBinder service) {
+            // This is called when the connection with the service has been
+            // established, giving us the service object we can use to
+            // interact with the service.  We are communicating with our
+            // service through an IDL interface, so get a client-side
+            // representation of that from the raw service object.
+            mService = new Messenger(service);
+
+            Log.i(TAG, "connecting to service");
+            // We want to monitor the service for as long as we are
+            // connected to it.
+            try {
+                Message msg = Message.obtain(null,
+                        LEDIService.Msg.REGISTER_CLIENT);
+                msg.replyTo = mMessenger;
+                mService.send(msg);
+            } catch (RemoteException e) {
+            }
+        }
+
+        public void onServiceDisconnected(ComponentName className) {
+            // This is called when the connection with the service has been
+            // unexpectedly disconnected -- that is, its process crashed.
+            mService = null;
+        }
+    };
 }

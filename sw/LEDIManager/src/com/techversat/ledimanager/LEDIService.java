@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import android.app.NotificationManager;
@@ -24,7 +25,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.os.Messenger;
 import android.os.PowerManager;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -33,13 +36,15 @@ import android.widget.Toast;
 
 public class LEDIService extends Service {
 
-	Context context;
+	static volatile Context context;
+	private static Service instance = null;
 	public static BluetoothAdapter bluetoothAdapter;
 	//BluetoothServerSocket bluetoothServerSocket;
 	BluetoothSocket bluetoothSocket;
 	static InputStream inputStream;
 	static OutputStream outputStream;
 
+	private boolean lastConnectionState = false;
 	TelephonyManager telephonyManager;
 	AudioManager audioManager;
 	NotificationManager notificationManager;
@@ -53,8 +58,8 @@ public class LEDIService extends Service {
 	public static int watchState;
 	
 	public static TestSmsLoop testSmsLoop;
+	static ServiceThread serviceThread;
 		
-	
 	final class ConnectionState {
 		static final int DISCONNECTED = 0;
 		static final int CONNECTING = 1;
@@ -92,7 +97,7 @@ public class LEDIService extends Service {
 		public static boolean notifyAlarm = true;
 		public static boolean notifyMusic = true;
 		public static String watchMacAddress = "";
-		public static int packetWait = 10;
+		public static int packetWait = 5;
 		public static boolean skipSDP = false;
 		public static boolean invertLCD = false;
 		public static String weatherCity = "Dallas,US";
@@ -101,14 +106,22 @@ public class LEDIService extends Service {
 		public static int smsLoopInterval = 15;
 		public static boolean idleMusicControls = false;
 		public static boolean idleReplay = false;
+		public static boolean insecureBtSocket = false;
 	}
 	
-
+	final static class Msg {
+		static final int REGISTER_CLIENT = 0;
+		static final int UNREGISTER_CLIENT = 1;
+		static final int UPDATE_STATUS = 2;
+		static final int SEND_TOAST = 3;
+		static final int DISCONNECT = 4;
+	}
+	
 	@Override
 	public IBinder onBind(Intent intent) {
-		return null;
+		return mMessenger.getBinder();
 	}
-	
+
 	public static void loadPreferences(Context context) {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 			
@@ -144,6 +157,12 @@ public class LEDIService extends Service {
 		editor.commit();
 	}
 	
+
+	private PendingIntent createNotificationPendingIntent() {
+		return PendingIntent.getActivity(this, 0, new Intent(this,
+				LEDIActivity.class), 0);
+	}
+
 	public void createNotification() {
 		notification = new android.app.Notification(R.drawable.disconnected_large, null, System.currentTimeMillis());
 		notification.flags |= android.app.Notification.FLAG_ONGOING_EVENT;
@@ -160,19 +179,27 @@ public class LEDIService extends Service {
 		startForeground(1, notification);
 	}
 	
-	public void updateNotification(boolean connected) {
-		if (connected) {
+	public void updateNotification() {
+		if (connectionState == ConnectionState.CONNECTED) {
 			notification.icon = R.drawable.connected;
 			remoteViews.setImageViewResource(R.id.image, R.drawable.connected_large);
+			broadcastConnection(true);
 		} else {
 			notification.icon = R.drawable.disconnected;
 			remoteViews.setImageViewResource(R.id.image, R.drawable.disconnected_large);
+			broadcastConnection(false);
 		}
 		startForeground(1, notification);
+		notifyClients();
 	}
+	
 	
 	public void removeNotification() {
 		stopForeground(true);
+	}
+	
+	public static boolean isRunning() {
+		return instance != null;
 	}
 
 	@Override
@@ -180,6 +207,7 @@ public class LEDIService extends Service {
 		super.onCreate();
 		
 		context = this;
+		instance = this;
 		createNotification();
 		
 		connectionState = ConnectionState.CONNECTING;
@@ -202,11 +230,10 @@ public class LEDIService extends Service {
 	public void onDestroy() {
 		disconnectExit();
 		super.onDestroy();	
-				
+		instance = null;
 		Monitors.stop();
 		removeNotification();
 	}
-	
 	
 	void connect(Context context) {
 		
@@ -234,13 +261,27 @@ public class LEDIService extends Service {
 			}
 			Log.d(LEDIActivity.TAG, "bond state: " + bond);
 			*/
-						
+			int currentapiVersion = android.os.Build.VERSION.SDK_INT;			
 			if (Preferences.skipSDP) {
-				Method method = bluetoothDevice.getClass().getMethod("createRfcommSocket", new Class[] { int.class });
-				bluetoothSocket = (BluetoothSocket) method.invoke(bluetoothDevice, 1);
+//				Method method = bluetoothDevice.getClass().getMethod("createRfcommSocket", new Class[] { int.class });
+//				bluetoothSocket = (BluetoothSocket) method.invoke(bluetoothDevice, 1);
+			    Method method;
+			    if (Preferences.insecureBtSocket && currentapiVersion >= android.os.Build.VERSION_CODES.GINGERBREAD_MR1) {
+			    	method = bluetoothDevice.getClass().getMethod("createInsecureRfcommSocket", new Class[] { int.class });
+			    } else {
+			    	method = bluetoothDevice.getClass().getMethod("createRfcommSocket", new Class[] { int.class });
+			    }
+			    bluetoothSocket = (BluetoothSocket) method.invoke(bluetoothDevice, 1);
 			} else {
 				UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-				bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
+//				bluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(uuid);
+				if (Preferences.insecureBtSocket && currentapiVersion >= android.os.Build.VERSION_CODES.GINGERBREAD_MR1) {
+//					bluetoothSocket = bluetoothDevice
+//							.createInsecureRfcommSocketToServiceRecord(uuid);
+				} else {
+					bluetoothSocket = bluetoothDevice
+							.createRfcommSocketToServiceRecord(uuid);
+				}				
 			}
 			
 			//Log.d(LEDIActivity.TAG, "got Bluetooth socket");
@@ -252,11 +293,10 @@ public class LEDIService extends Service {
 			outputStream = bluetoothSocket.getOutputStream();
 			
 			connectionState = ConnectionState.CONNECTED;		
-			updateNotification(true);
+			updateNotification();
 			
 			Protocol.sendRtcNow(context);			
-			// Protocol.getDeviceType();			
-			
+		
 		} catch (IOException ioexception) {
 			Log.d(LEDIActivity.TAG, ioexception.toString());
 			sendToast(ioexception.toString());
@@ -270,9 +310,7 @@ public class LEDIService extends Service {
 			Log.d(LEDIActivity.TAG, e.toString());
 		} catch (InvocationTargetException e) {
 			Log.d(LEDIActivity.TAG, e.toString());
-		}
-
-		
+		}	
 	}
 	
 	public void sendToast(String text) {
@@ -281,19 +319,57 @@ public class LEDIService extends Service {
 		m.obj = text;
 		messageHandler.sendMessage(m);
 	}
+	
 
-	private Handler messageHandler = new Handler() {
+    /** Keeps track of all current registered clients. */
+    static ArrayList<Messenger> mClients = new ArrayList<Messenger>();
+  
+	private static Handler messageHandler = new Handler() {
 
 		@Override
 		public void handleMessage(Message msg) {
+			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "handleMessage "+msg);
 			switch (msg.what) {
-			case 1:
-				Toast.makeText(context, (CharSequence) msg.obj, Toast.LENGTH_SHORT).show();
-				break;
+            case Msg.REGISTER_CLIENT:
+                mClients.add(msg.replyTo);
+                break;
+            case Msg.UNREGISTER_CLIENT:
+                mClients.remove(msg.replyTo);
+                break;
+            case Msg.SEND_TOAST:
+            	Toast.makeText(context, 
+            			(CharSequence) msg.obj,
+            			Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                super.handleMessage(msg);
 			}
 		}
 
 	};
+
+	
+	/**
+     * Target we publish for clients to send messages to IncomingHandler.
+     */
+    final static Messenger mMessenger = new Messenger(messageHandler);
+
+    public static void notifyClients() {
+    	for (int i=mClients.size()-1; i>=0; i--) {
+            try {
+                mClients.get(i).send(Message.obtain(null,
+                        Msg.UPDATE_STATUS, 0, 0));
+            } catch (RemoteException e) {
+                // The client is dead.  Remove it from the list;
+                // we are going through the list from back to front
+                // so this is safe to do inside the loop.
+                mClients.remove(i);
+            } catch (NullPointerException e) {
+                mClients.remove(i);
+            }
+        }
+    }
+	
 	
 	void disconnect() {
 		try {
@@ -314,8 +390,9 @@ public class LEDIService extends Service {
 	}
 	
 	void disconnectExit() {
-		connectionState = ConnectionState.DISCONNECTING;
-		disconnect();		
+		connectionState = ConnectionState.DISCONNECTING;		
+		updateNotification();
+		disconnect();
 	}
 	
 	public static void nap(long time) {
@@ -325,7 +402,99 @@ public class LEDIService extends Service {
 		}
 	}
 	
+	private class ServiceThread extends Thread
+	{			
+		private Handler handler;
+		private Looper looper;
+		
+		public ServiceThread(String name) {
+			super(name);
+		}
+		@Override
+		public void run() {
+			
+			try {						
+				Looper.prepare();
+				looper = Looper.myLooper();
+				handler = new Handler();
+				
+				Runnable ProcessState = new Runnable() {
+						public void run() { 
+							int delay = processState();
+							if(delay >= 0) {
+								handler.postDelayed(this, delay);
+							} else {
+								connectionState = ConnectionState.DISCONNECTED;
+								updateNotification();
+								handler.removeCallbacks(this);
+								looper.quit();
+							}
+						}
+				};
+					
+				handler.post(ProcessState);
+				Looper.loop();			
+			} 
+			catch(Throwable T)
+			{
+				// if (Preferences.logging) Log.d(LEDIActivity.TAG, "serviceThread: " + T.getMessage());	
+			}
+			finally
+			{				
+				connectionState = ConnectionState.DISCONNECTED;
+				updateNotification();		
+				if (instance != null) {
+					instance.stopSelf();
+				}
+			}
+		}
+		
+		public void quit() {
+			if (looper != null)
+				looper.quit();
+		}		
+	}	
+	
+	int processState()
+	{
+		int result = 0;
+		switch (connectionState) {
+		case ConnectionState.DISCONNECTED:
+			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "state: disconnected");
+			break;
+		case ConnectionState.CONNECTING:
+			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "state: connecting");
+			// create initial connection or reconnect
+			updateNotification();					
+			connect(LEDIService.this);
+//			if(powerManager.isScreenOn()) {
+//				result = 10000; //try to reconnect in 10s 
+//			} else {
+//				result = 30000; //try to reconnect in 30s				
+//			}
+			result = 10000;
+			break;
+		case ConnectionState.CONNECTED:
+			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "state: connected");
+			// read from input stream
+			readFromDevice();
+			break;
+		case ConnectionState.DISCONNECTING:
+			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "state: disconnecting");
+			// exit			
+			result = -1;
+			break;
+		}	
+		
+		return result;
+	}
+	
 	void start() {
+		serviceThread = new ServiceThread("LEDI Service Thread"); 		
+		serviceThread.start();
+	}
+	
+	void start_old() {
 		Thread thread = new Thread() {
 			public void run() {
 				boolean run = true;
@@ -339,7 +508,7 @@ public class LEDIService extends Service {
 					case ConnectionState.CONNECTING:
 						Log.d(LEDIActivity.TAG, "state: connecting");
 						// create initial connection or reconnect
-						updateNotification(false);
+						updateNotification();
 						connect(context);
 						nap(2000);
 						break;
@@ -469,18 +638,20 @@ public class LEDIService extends Service {
 		
 	}
 	
-	void broadcastButton(byte button, int state) {		
-		Intent intent = new Intent("org.LEDIActivity.manager.BUTTON_PRESS");
-		intent.putExtra("button", button);
-		switch (state) {
-			case LEDIStates.IDLE:
-				intent.putExtra("mode", "idle");
-				break;
-			case LEDIStates.APPLICATION:
-				intent.putExtra("mode", "application");
-				break;
-		}		
-		sendBroadcast(intent);		
+	
+	void broadcastConnection(boolean connected) {
+		if (connected != lastConnectionState) {
+			lastConnectionState = connected;
+			Intent intent = new Intent(
+					"com.techversat.ledimanager.CONNECTION_CHANGE");
+			intent.putExtra("state", connected);
+			sendBroadcast(intent);
+			notifyClients();
+			// if (Preferences.logging) Log.d(LEDIActivity.TAG,
+			// 		"LEDIActivityService.broadcastConnection(): Broadcast connection change: state='"
+			//				+ connected + "'");
+			// Protocol.resetLCDDiffBuffer();
+		}
 	}
 	
 

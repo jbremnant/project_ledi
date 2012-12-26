@@ -30,7 +30,7 @@ public class DotMatrix {
     private Context context;
     private final int xsize, ysize;
     private float height, width;
-    private final float offset = 35;
+    private final float offset = 38;
     private final int diameter;
     private final int defaultColor = Color.WHITE;
     private final int onColor = Color.RED;
@@ -118,7 +118,7 @@ public class DotMatrix {
     	
     	// the dots are organized column wise.
     	int pos = (ysize * xpos) + ypos;
-    	if(dots.size()-1 < pos)
+    	if(dots.size()-1 < pos || pos < 0)
     	{
     		// Log.i(LEDIActivity.TAG, "Dots pos outside of size");
     		return;

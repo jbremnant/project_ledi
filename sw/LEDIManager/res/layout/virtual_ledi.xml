@@ -16,29 +16,6 @@
         android:layout_weight="1"
         android:background="@drawable/white"
         />
-    
-  <LinearLayout
-      android:orientation="horizontal"
-      android:background="@drawable/grey"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-
-    <EditText
-        android:id="@+id/text1"
-        android:text="@string/defaultText"
-        android:focusable="false"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"/>
-
-    <EditText
-        android:id="@+id/text2"
-        android:text="@string/defaultText"
-        android:focusable="false"
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"/>
-  </LinearLayout>
 
   <LinearLayout
       android:orientation="horizontal"
@@ -48,16 +25,15 @@
 
     <Button
         android:id="@+id/button1"
-        android:text="@string/labelRed"
-        android:textColor="@drawable/red"
+        android:text="@string/labelClear"
+        android:textColor="@drawable/green"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="1"/>
 
     <Button
         android:id="@+id/button2"
-        android:text="@string/labelGreen"
-        android:textColor="@drawable/green"
+        android:text="@string/labelQuit"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="1"/>

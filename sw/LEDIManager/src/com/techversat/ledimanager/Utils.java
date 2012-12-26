@@ -47,7 +47,10 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.CallLog;
 import android.provider.ContactsContract.PhoneLookup;
+import android.text.Spannable;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.widget.TextView;
 
 public class Utils {
 
@@ -209,5 +212,13 @@ public class Utils {
 		return false;
 	}
 	
+	public static void appendColoredText(TextView tv, String text, int color) {
+    	int start = tv.getText().length();
+    	tv.append(text);
+    	int end = tv.getText().length();
+    	
+    	Spannable spannableText = (Spannable) tv.getText();
+    	spannableText.setSpan(new ForegroundColorSpan(color), start, end, 0);
+    }
 
 }

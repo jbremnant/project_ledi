@@ -13,7 +13,7 @@
 			android:defaultValue=""
 			/>
 	<Preference
-			android:title="Select Watch"
+			android:title="Select Device"
 			android:key="Discovery"
 			android:summary="Discover and select watch"
 			/>
@@ -118,7 +118,7 @@
 			android:key="PacketWait"
 			android:summary="Time between packet sends (ms)"
 			android:numeric="integer"
-			android:defaultValue="10"
+			android:defaultValue="5"
 			/>
 		<EditTextPreference
 			android:title="Test SMS loop interval"

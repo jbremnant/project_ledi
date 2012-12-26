@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="defaultText">0</string>
-	<string name="labelRed">Red</string>
-    <string name="labelGreen">Green</string>
+	<string name="labelClear">clear</string>
+    <string name="labelQuit">quit</string>
     <string name="menuClear">Clear</string>
+    <string name="labelOn">service on</string>
+    <string name="labelOff">service off</string>
+    
+    <string name="connection_disconnected">disconnected</string>
+    <string name="connection_connecting">connecting</string>
+    <string name="connection_connected">connected</string>
+    <string name="connection_disconnecting">disconnecting</string>
     
     <string name="app_name">LEDIManager</string>
     <string name="hello_world">Hello world!</string>
