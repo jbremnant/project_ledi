@@ -55,6 +55,8 @@ public class LEDIActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		setTitle(getString(R.string.app_name));
 		
+		textView = (TextView) findViewById(R.id.textView1);	
+		
 		toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
 		toggleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
