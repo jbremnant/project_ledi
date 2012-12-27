@@ -31,14 +31,13 @@ public class DotMatrix {
     private final int xsize, ysize;
     private float height, width;
     private final float offset = 38;
-    private final int diameter;
+    private final int defaultDiameter = 10;
     private final int defaultColor = Color.WHITE;
     private final int onColor = Color.RED;
     
-    public DotMatrix(int xsize, int ysize, int diameter) {
+    public DotMatrix(int xsize, int ysize) {
     	this.xsize = xsize;
     	this.ysize = ysize;
-    	this.diameter = diameter;
     }
     
     public int getXPos(float x) {
@@ -58,6 +57,10 @@ public class DotMatrix {
     public void initializeDots() {
     	float xbin = (width-offset) / xsize;
     	float ybin = (height-offset) / ysize;
+    	int diameter = (int) (ybin * 0.2);  // 20% of the bin size
+    	if(diameter < 0 || diameter > 40) {  // 32*40 == 1280 pixels. too big 
+    		diameter = defaultDiameter;
+    	}
     	
     	for(int i=0; i<xsize; i++) {
     		for(int j=0; j<ysize; j++) {

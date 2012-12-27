@@ -9,13 +9,13 @@
 	<EditTextPreference
 			android:title="@string/settings_Mac"
 			android:key="MAC"
-			android:summary="Enter watch MAC address manually"
+			android:summary="Enter device MAC address manually"
 			android:defaultValue=""
 			/>
 	<Preference
 			android:title="Select Device"
 			android:key="Discovery"
-			android:summary="Discover and select watch"
+			android:summary="Discover and select device"
 			/>
 	</PreferenceCategory>	
 	
@@ -90,7 +90,7 @@
 			android:summary="Enable replay of last notification on Idle screen"
 			android:defaultValue="false"
 			/>
-		-->
+		
 		<ListPreference 
 			android:entries="@array/settings_font_size_name" 
 			android:entryValues="@array/settings_font_size_value" 
@@ -101,6 +101,7 @@
  			android:enabled="true" 
  			android:defaultValue="2"
  			/>
+ 		
 		<EditTextPreference
 			android:title="Weather Location"
 			android:key="WeatherCity"
@@ -113,6 +114,7 @@
 			android:summary="Display temperature in Celsius instead of Fahrenheit"
 			android:defaultValue="false"
 			/>
+		-->
 		<EditTextPreference
 			android:title="Packet Wait"
 			android:key="PacketWait"
@@ -131,6 +133,12 @@
 			android:title="Insecure BT connection"
 			android:key="InsecureBtSocket"
 			android:summary="Bluetooth Compatibility"
+			android:defaultValue="false"
+			/>
+		<CheckBoxPreference
+			android:title="Skip SDP"
+			android:key="SkipSDP"
+			android:summary="Skip SDP mode"
 			android:defaultValue="false"
 			/>
 	</PreferenceCategory>	

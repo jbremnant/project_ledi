@@ -19,7 +19,7 @@
     <string name="settings_Main">Main</string>
     
 	<string name="settings_StartOnBoot">Start On Boot</string>
-	<string name="settings_StartOnBoot_desc">Start MetaWatch service on boot</string>
+	<string name="settings_StartOnBoot_desc">Start LEDI service on boot</string>
     
     
     <string name="settings_Notifications">Notifications</string>
@@ -36,7 +36,7 @@
     
     <string name="settings_Device">Device</string>
     <string name="settings_Mac">MAC</string>
-    <string name="settings_Mac_desc">Watch Bluetooth MAC address</string>
+    <string name="settings_Mac_desc">LEDI Bluetooth MAC address</string>
     
     <string-array name="settings_font_size_name"> 
    	<item>Small</item>

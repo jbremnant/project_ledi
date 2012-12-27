@@ -26,7 +26,7 @@
     <Button
         android:id="@+id/button1"
         android:text="@string/labelClear"
-        android:textColor="@drawable/green"
+        android:textColor="@drawable/black"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="1"/>

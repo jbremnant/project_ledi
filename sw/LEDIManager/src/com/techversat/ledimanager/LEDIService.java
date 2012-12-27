@@ -513,7 +513,7 @@ public class LEDIService extends Service {
 		case ConnectionState.CONNECTED:
 			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "state: connected");
 			// read from input stream
-			readFromDevice();
+			// readFromDevice();
 			break;
 		case ConnectionState.DISCONNECTING:
 			// if (Preferences.logging) Log.d(LEDIActivity.TAG, "state: disconnecting");

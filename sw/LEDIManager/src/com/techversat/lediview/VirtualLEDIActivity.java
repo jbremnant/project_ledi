@@ -253,7 +253,7 @@ public class VirtualLEDIActivity extends Activity {
         int w1 = dotView.getWidth();
         int h1 = dotView.getHeight();
          */
-        dotModel = new DotMatrix(32, 8, DOT_DIAMETER);
+        dotModel = new DotMatrix(32, 8);
         dotView.setDots(dotModel);
 
         dotView.setOnCreateContextMenuListener(this);

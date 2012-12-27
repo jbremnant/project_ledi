@@ -40,7 +40,7 @@ public class DeviceSelection extends Activity {
 				pdWait.dismiss();
 				
 				if (list.size() == 0) {
-					sendToast("No watch found");
+					sendToast("No LEDI found");
 					finish();
 				}
 			}
@@ -107,7 +107,7 @@ public class DeviceSelection extends Activity {
 				LEDIService.Preferences.watchMacAddress = mac;
 				LEDIService.saveMac(context, mac);
 				
-				sendToast("Selected watch set");
+				sendToast("Selected device");
 			
 				finish();
 			} 

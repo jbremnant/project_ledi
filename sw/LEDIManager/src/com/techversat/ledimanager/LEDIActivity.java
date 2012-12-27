@@ -95,7 +95,10 @@ public class LEDIActivity extends Activity {
     		return;
     	
     	Resources res = context.getResources();
-    	textView.setText(res.getString(R.string.app_name));
+    	textView.setText("");
+		Utils.appendColoredText(textView,
+				res.getString(R.string.app_name),
+				Color.GRAY);
     	textView.append("\n\n");
     	
     	switch (LEDIService.connectionState) {
@@ -137,7 +140,9 @@ public class LEDIActivity extends Activity {
 		textView = (TextView) findViewById(R.id.textView1);
 		if(LEDIService.connectionState != ConnectionState.CONNECTED)
 		{
-			textView.setText("Cannot start virtual LEDI.\nPlease establish connection first");
+			Utils.appendColoredText(textView,
+					"Cannot start virtual LEDI.\nPlease establish connection first",
+    				Color.GRAY);
 			return;
 		}
 		Intent intent = new Intent(this, VirtualLEDIActivity.class);
@@ -149,7 +154,9 @@ public class LEDIActivity extends Activity {
 		textView = (TextView) findViewById(R.id.textView1);
 		if(LEDIService.connectionState != ConnectionState.CONNECTED)
 		{
-			textView.setText("Cannot set time. Please establish connection first");
+			Utils.appendColoredText(textView,
+					"Cannot set time.\nPlease establish connection first",
+    				Color.GRAY);
 			return;
 		}
 		textView.setText("setting Time");
