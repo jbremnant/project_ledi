@@ -40,7 +40,7 @@ public class IntentReceiver extends BroadcastReceiver {
 				Monitors.updateGmailUnreadCount(recipient, count);
 				
 				if (count > 0)
-					NotificationBuilder.createGmailBlank(context, recipient);
+					NotificationBuilder.createGmailBlank(context, recipient, count);
 				else
 					Idle.updateLcdIdle(context);
 				return;

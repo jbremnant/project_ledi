@@ -107,6 +107,7 @@ public class LEDIService extends Service {
 		public static boolean idleMusicControls = false;
 		public static boolean idleReplay = false;
 		public static boolean insecureBtSocket = false;
+		public static boolean logging = true;
 	}
 	
 	final static class Msg {
@@ -161,11 +162,11 @@ public class LEDIService extends Service {
 	}
 
 	public void createNotification() {
-		notification = new android.app.Notification(R.drawable.disconnected_large, null, System.currentTimeMillis());
+		notification = new android.app.Notification(R.drawable.notification_disconnected, null, System.currentTimeMillis());
 		notification.flags |= android.app.Notification.FLAG_ONGOING_EVENT;
 
 		remoteViews = new RemoteViews(getPackageName(), R.layout.notification);
-		remoteViews.setImageViewResource(R.id.image, R.drawable.disconnected);
+		remoteViews.setImageViewResource(R.id.image, R.drawable.notification_disconnected);
 		remoteViews.setTextViewText(R.id.text, "LEDIActivity service is running");
 		notification.contentView = remoteViews;
 
@@ -178,12 +179,12 @@ public class LEDIService extends Service {
 	
 	public void updateNotification() {
 		if (connectionState == ConnectionState.CONNECTED) {
-			notification.icon = R.drawable.connected;
-			remoteViews.setImageViewResource(R.id.image, R.drawable.connected_large);
+			notification.icon = R.drawable.notification_connected;
+			remoteViews.setImageViewResource(R.id.image, R.drawable.notification_connected);
 			broadcastConnection(true);
 		} else {
-			notification.icon = R.drawable.disconnected;
-			remoteViews.setImageViewResource(R.id.image, R.drawable.disconnected_large);
+			notification.icon = R.drawable.notification_disconnected;
+			remoteViews.setImageViewResource(R.id.image, R.drawable.notification_disconnected);
 			broadcastConnection(false);
 		}
 		startForeground(1, notification);

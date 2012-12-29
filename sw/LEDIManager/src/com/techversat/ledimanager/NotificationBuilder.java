@@ -62,8 +62,8 @@ public class NotificationBuilder {
 	public static void createGmail(Context context, String sender, String email, String subject, String snippet) {
 		Notification.addTextNotification(context, "gmail " + sender + ": " + subject, Notification.notificationTimeout);
 	}
-	public static void createGmailBlank(Context context, String recipient) {
-		Notification.addTextNotification(context, "gmail " + recipient, Notification.notificationTimeout);
+	public static void createGmailBlank(Context context, String recipient, int unreadCount) {
+		Notification.addTextNotification(context, "gmail " + recipient + " unread " + unreadCount, Notification.notificationTimeout);
 	}
 	public static void createAlarm(Context context) {
 		Notification.addTextNotification(context, "alarm clock!", Notification.notificationTimeout);

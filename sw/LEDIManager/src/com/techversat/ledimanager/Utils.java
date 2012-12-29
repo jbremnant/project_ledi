@@ -34,6 +34,8 @@ package com.techversat.ledimanager;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -152,21 +154,6 @@ public class Utils {
 		return 0;
 	}
 	
-	public static String getGoogleAccountName(Context context) {
-		AccountManager accountManager = AccountManager.get(context);
-		Account[] accounts = accountManager.getAccounts();
-		int count = accounts.length;
-		Account account = null;
-
-		for (int i = 0; i < count; i++) {
-			account = accounts[i];
-			if (account.type.equals("com.google")) {
-				return account.name;
-			}
-		}
-		return "";
-	}
-	
 	public static Bitmap loadBitmapFromAssets(Context context, String path) {
 		try {
 			InputStream inputStream = context.getAssets().open(path);
@@ -195,22 +182,6 @@ public class Utils {
 		return "unknown";
 	}
 	
-	public static boolean isGmailAccessSupported(Context context) {
-		
-		
-		try {
-			PackageManager packageManager = context.getPackageManager();
-			PackageInfo packageInfo = packageManager.getPackageInfo("com.google.android.gm", 0);
-			// check for Gmail version earlier than v2.3.5 (169)
-			if (packageInfo.versionCode < 169)
-					return true;			
-			
-		} catch (NameNotFoundException e) {
-		}
-		
-		
-		return false;
-	}
 	
 	public static void appendColoredText(TextView tv, String text, int color) {
     	int start = tv.getText().length();
@@ -220,5 +191,94 @@ public class Utils {
     	Spannable spannableText = (Spannable) tv.getText();
     	spannableText.setSpan(new ForegroundColorSpan(color), start, end, 0);
     }
+	
+	public static boolean isGmailAccessSupported(Context context) {
+		return (
+			GmailAPIMonitor.isSupported(context) ||
+			GmailLSMonitor.isSupported(context)
+		);
+	}
+	
+	private static GmailMonitor gmailMonitor = null;
+	public static GmailMonitor getGmailMonitor(Context context) {
+		if (gmailMonitor == null) {
+			try {
+				if (GmailAPIMonitor.isSupported(context)) {
+					Log.i(LEDIActivity.TAG, "returning GmailAPIMonitor");
+					gmailMonitor = new GmailAPIMonitor(context);
+				} else if (GmailLSMonitor.isSupported(context)) {
+					Log.i(LEDIActivity.TAG, "returning GmailLSMonitor");
+					gmailMonitor = new GmailLSMonitor(context);
+				}
+			} catch (Exception e) {
+				gmailMonitor = null;
+			}
+		}
+		
+		return gmailMonitor;
+	}
+
+
+	public static int getUnreadGmailCount(Context context) {
+		GmailMonitor monitor = getGmailMonitor(context);
+		if (monitor != null) {
+			return monitor.getUnreadCount();
+		}
+		
+		// Fallback to our own counter (based on notifications).
+		return Monitors.getGmailUnreadCount();
+	}
+	
+	public static String getGoogleAccountName(Context context) {
+		AccountManager accountManager = AccountManager.get(context);
+		Account[] accounts = accountManager.getAccounts();
+
+		for (Account account : accounts) {
+			if (account.type.equals("com.google")) {
+				return account.name;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Return a lists of configured Gmail account, rather than the first one
+	 * 
+	 * @param context
+	 * @return List<String> the list of the account names
+	 */
+	public static List<String> getGoogleAccountsNames(Context context) {
+		AccountManager accountManager = AccountManager.get(context);
+		Account[] accounts = accountManager.getAccounts();
+		
+		final List<String> accNames = new ArrayList<String>();
+		
+		for (Account account : accounts) {
+			if (account.type.equals("com.google")) {
+				accNames.add(account.name);
+			}
+		}
+		
+		return accNames;
+	}
+	
+	
+	public static class CursorHandler {
+		private List<Cursor> cursors = new ArrayList<Cursor>();
+		
+		public Cursor add(Cursor c) {
+			if (c!=null)
+				cursors.add(c);
+			return c;
+		}
+		
+		public void closeAll() {
+			for(Cursor c : cursors) {
+				if(!c.isClosed())
+					c.close();
+			}
+		}
+	}
+	
 
 }

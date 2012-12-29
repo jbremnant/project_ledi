@@ -14,6 +14,7 @@ import org.anddev.android.weatherforecast.weather.WeatherSet;
 import org.anddev.android.weatherforecast.weather.WeatherUtils;
 */
 import com.techversat.ledimanager.LEDIService.Preferences;
+
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
@@ -57,16 +58,46 @@ public class Monitors {
 		public static String city;
 	}
 	
-	public static void updateGmailUnreadCount(String account, int count) {
+	public static void updateGmailUnreadCount_old(String account, int count) {
 		gmailUnreadCounts.put(account, count);
 	}
 	
-	public static int getGmailUnreadCount() {
+	public static int getGmailUnreadCount_old() {
 		int count = 0;
 		for (int i : gmailUnreadCounts.values())
 			count += i;
 		return count;
 	}
+	
+	
+	public static void updateGmailUnreadCount(String account, int count) {
+		if (Preferences.logging) Log.d(LEDIActivity.TAG, "Monitors.updateGmailUnreadCount(): account='"
+				+ account + "' count='" + count + "'");
+		gmailUnreadCounts.put(account, count);
+		if (Preferences.logging) Log.d(LEDIActivity.TAG,
+				"Monitors.updateGmailUnreadCount(): new unread count is: "
+						+ gmailUnreadCounts.get(account));
+	}
+	
+	public static int getGmailUnreadCount() {
+		if (Preferences.logging) Log.d(LEDIActivity.TAG, "Monitors.getGmailUnreadCount()");
+		int totalCount = 0;
+		for (String key : gmailUnreadCounts.keySet()) {
+			Integer accountCount = gmailUnreadCounts.get(key);
+			totalCount += accountCount.intValue();
+			if (Preferences.logging) Log.d(LEDIActivity.TAG, "Monitors.getGmailUnreadCount(): account='"
+					+ key + "' accountCount='" + accountCount
+					+ "' totalCount='" + totalCount + "'");
+		}
+		return totalCount;
+	}
+	
+	public static int getGmailUnreadCount(String account) {
+		int count = gmailUnreadCounts.get(account);
+		if (Preferences.logging) Log.d(LEDIActivity.TAG, "Monitors.getGmailUnreadCount('"+account+"') returning " + count);
+		return count;
+	}
+	
 	
 	public static void start(Context context, TelephonyManager telephonyManager) {
 		// start weather updater
@@ -81,11 +112,12 @@ public class Monitors {
 		int phoneEvents = PhoneStateListener.LISTEN_CALL_STATE;
 		telephonyManager.listen(phoneListener, phoneEvents);
 		
-		if (Utils.isGmailAccessSupported(context)) {
-			gmailMonitor = new GmailMonitor(context);
+		
+		gmailMonitor = Utils.getGmailMonitor(context);
+		if (gmailMonitor != null) {
 			gmailMonitor.startMonitor();
 		}
-		
+			
 		try {
 			contentObserverMessages = new ContentObserverMessages(context);
 			Uri uri = Uri.parse("content://mms-sms/conversations/");
@@ -176,7 +208,7 @@ public class Monitors {
 			Idle.updateLcdIdle(context);
 			
 			} catch (Exception e) {
-				Log.e(MetaWatch.TAG, e.toString());
+				Log.e(LEDIActivity.TAG, e.toString());
 			} 
 	}
 	*/
